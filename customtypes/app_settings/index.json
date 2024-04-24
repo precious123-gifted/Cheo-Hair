@@ -51,6 +51,22 @@
             }
           }
         }
+      },
+      "carticon": {
+        "type": "Image",
+        "config": {
+          "label": "Carticon",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }

@@ -1,0 +1,45 @@
+{
+  "id": "hero",
+  "type": "SharedSlice",
+  "name": "Hero",
+  "description": "Hero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "header1": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header1",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "embed,heading1,paragraph"
+          }
+        },
+        "header2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "embed,heading1,heading2,paragraph"
+          }
+        },
+        "heroimage": {
+          "type": "Image",
+          "config": {
+            "label": "HeroImage",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
