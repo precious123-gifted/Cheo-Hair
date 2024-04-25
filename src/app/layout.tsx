@@ -34,7 +34,13 @@ export default function RootLayout({
       <body className={inter.className}>
         
         <Header/>
-        {children}
+        <div className="relative">
+          <div className="menuslidebackground absolute z-10 bg-[#47443F] opacity-[98%] h-full w-full">
+
+          </div>
+          {children} 
+        </div>
+       
         <Footer/>
        
         </body>
