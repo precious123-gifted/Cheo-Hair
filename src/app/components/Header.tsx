@@ -1,7 +1,12 @@
 import { createClient } from "@/prismicio";
 import Image from "next/image";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { Kelly_Slab } from "next/font/google";
 
+
+
+
+const kellySlab = Kelly_Slab({subsets: ["latin"],weight: "400"})
 export default async function Header() {
 
     const client = createClient()
@@ -9,9 +14,11 @@ export default async function Header() {
     const settings = await client.getSingle('app_settings')
 
   return (
-    <div className="w-full h-fit bg-[#F5ECF1] flex flex-col  items-center pt-2">
+    <div
+    style={kellySlab.style}
+     className="w-full h-fit bg-[#F5ECF1] flex flex-col  items-center pt-2">
   <div className="content w-[95%] h-full flex flex-row justify-between items-center relative">
-<div className="logo cursor-pointer object-contain  w-[16vw] portrait:w-[32vw]  ">
+<div className="logo cursor-pointer object-contain  w-[17vw] portrait:w-[32vw]  ">
 <PrismicNextImage  field={settings.data.logo} />
       </div>
 
@@ -33,7 +40,7 @@ export default async function Header() {
 
 
 <div className="links portrait:hidden w-[40%] flex items-center ">
-<ul className=" flex justify-between w-[80%] text-[1.4vw] mr-10">
+<ul className=" flex justify-between w-[80%] text-[1.5vw] mr-10">
 
 {settings.data.navigation.map(({label,link})=>(
 <li key={label}>
