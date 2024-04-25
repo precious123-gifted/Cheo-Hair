@@ -67,6 +67,22 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "menuicon": {
+        "type": "Image",
+        "config": {
+          "label": "Menuicon",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "exiticon": {
+        "type": "Image",
+        "config": {
+          "label": "Exiticon",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }

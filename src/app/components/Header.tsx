@@ -11,11 +11,17 @@ export default async function Header() {
   return (
     <div className="w-full bg-[#F5ECF1] flex justify-center items-center">
   <div className="content w-[95%] flex flex-row justify-between items-center">
-<div className="logo cursor-pointer object-contain  w-[20vw]  ">
+<div className="logo cursor-pointer object-contain  w-[20vw] portrait:w-[30vw]  ">
 <PrismicNextImage  field={settings.data.logo} />
       </div>
 
-<div className="links w-[40%] flex items-center ">
+
+<div className=" menuicon landscape:hidden cursor-pointer object-contain  w-[5vw]">
+<PrismicNextImage  field={settings.data.menuicon} />
+</div>
+
+
+<div className="links portrait:hidden w-[40%] flex items-center ">
 <ul className=" flex justify-between w-[80%] text-[1.4vw] mr-10">
 
 {settings.data.navigation.map(({label,link})=>(
