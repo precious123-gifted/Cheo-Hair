@@ -9,9 +9,9 @@ export default async function Header() {
     const settings = await client.getSingle('app_settings')
 
   return (
-    <div className="w-full h-fit bg-[#F5ECF1] flex flex-col  items-center ">
+    <div className="w-full h-fit bg-[#F5ECF1] flex flex-col  items-center pt-2">
   <div className="content w-[95%] h-full flex flex-row justify-between items-center relative">
-<div className="logo cursor-pointer object-contain  w-[20vw] portrait:w-[32vw]  ">
+<div className="logo cursor-pointer object-contain  w-[16vw] portrait:w-[32vw]  ">
 <PrismicNextImage  field={settings.data.logo} />
       </div>
 
