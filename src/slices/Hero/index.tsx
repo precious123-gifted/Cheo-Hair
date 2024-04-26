@@ -32,7 +32,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 
     </div>
 
-    <div className="staricons w-[95%] flex justify-center">
+    <div className="staricons  flex justify-center">
       <div className="content object-contain w-[30vw] portrait:w-[90vw]  portrait:sm:w-[70vw]">
 
       <Image alt="staricon  " src={starIcon}></Image>

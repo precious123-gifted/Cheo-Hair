@@ -30,7 +30,7 @@ const Bestsellers = ({ slice }: BestsellersProps): JSX.Element => {
 
       {slice.items.map((item, index) => (
         <div key={index} className="hairContainer w-auto flex flex-col items-center text-center space-y-1 ">
-          <div className="hairImage w-[12vw] portrait:w-[26vw]  portrait:sm:w-[23vw] object-contain">
+          <div className="hairImage w-[12vw] portrait:w-[27vw]  portrait:sm:w-[23vw] object-contain">
             <PrismicNextImage field={item.hairimage}  className="rounded-lg"/>
           </div>
           <div className="hairTitle text-[1.5vw] portrait:text-[5vw]">{item.hairtitle}</div>
