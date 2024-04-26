@@ -83,6 +83,44 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "haircontainer": {
+        "type": "Group",
+        "config": {
+          "label": "Haircontainer",
+          "repeat": true,
+          "fields": {
+            "hairimage": {
+              "type": "Image",
+              "config": {
+                "label": "Hairimage",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "hairname": {
+              "type": "Text",
+              "config": {
+                "label": "Hairname",
+                "placeholder": ""
+              }
+            },
+            "hairdescription": {
+              "type": "Text",
+              "config": {
+                "label": "Hairdescription",
+                "placeholder": ""
+              }
+            },
+            "hairprize": {
+              "type": "Text",
+              "config": {
+                "label": "Hairprize",
+                "placeholder": ""
+              }
+            }
+          }
+        }
       }
     }
   }

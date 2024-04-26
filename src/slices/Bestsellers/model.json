@@ -1,0 +1,56 @@
+{
+  "id": "bestsellers",
+  "type": "SharedSlice",
+  "name": "Bestsellers",
+  "description": "Bestsellers",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "header": {
+          "type": "Text",
+          "config": {
+            "label": "Header",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "hairimage": {
+          "type": "Image",
+          "config": {
+            "label": "Hairimage",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "hairtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Hairtitle",
+            "placeholder": ""
+          }
+        },
+        "hairdescription": {
+          "type": "Text",
+          "config": {
+            "label": "Hairdescription",
+            "placeholder": ""
+          }
+        },
+        "hairprize": {
+          "type": "Text",
+          "config": {
+            "label": "Hairprize",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

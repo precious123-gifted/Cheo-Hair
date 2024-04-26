@@ -30,6 +30,51 @@ export interface AppSettingsDocumentDataNavigationItem {
 }
 
 /**
+ * Item in *app_settings → Haircontainer*
+ */
+export interface AppSettingsDocumentDataHaircontainerItem {
+  /**
+   * Hairimage field in *app_settings → Haircontainer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: app_settings.haircontainer[].hairimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hairimage: prismic.ImageField<never>;
+
+  /**
+   * Hairname field in *app_settings → Haircontainer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: app_settings.haircontainer[].hairname
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hairname: prismic.KeyTextField;
+
+  /**
+   * Hairdescription field in *app_settings → Haircontainer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: app_settings.haircontainer[].hairdescription
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hairdescription: prismic.KeyTextField;
+
+  /**
+   * Hairprize field in *app_settings → Haircontainer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: app_settings.haircontainer[].hairprize
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hairprize: prismic.KeyTextField;
+}
+
+/**
  * Content for app_settings documents
  */
 interface AppSettingsDocumentData {
@@ -122,6 +167,19 @@ interface AppSettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   exiticon: prismic.ImageField<never>;
+
+  /**
+   * Haircontainer field in *app_settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: app_settings.haircontainer[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  haircontainer: prismic.GroupField<
+    Simplify<AppSettingsDocumentDataHaircontainerItem>
+  >;
 }
 
 /**
@@ -140,7 +198,7 @@ export type AppSettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomePageDocumentDataSlicesSlice = HeroSlice;
+type HomePageDocumentDataSlicesSlice = BestsellersSlice | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -219,6 +277,96 @@ export type HomePageDocument<Lang extends string = string> =
 export type AllDocumentTypes = AppSettingsDocument | HomePageDocument;
 
 /**
+ * Primary content in *Bestsellers → Primary*
+ */
+export interface BestsellersSliceDefaultPrimary {
+  /**
+   * Header field in *Bestsellers → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bestsellers.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  header: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Bestsellers → Items*
+ */
+export interface BestsellersSliceDefaultItem {
+  /**
+   * Hairimage field in *Bestsellers → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bestsellers.items[].hairimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hairimage: prismic.ImageField<never>;
+
+  /**
+   * Hairtitle field in *Bestsellers → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bestsellers.items[].hairtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hairtitle: prismic.KeyTextField;
+
+  /**
+   * Hairdescription field in *Bestsellers → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bestsellers.items[].hairdescription
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hairdescription: prismic.KeyTextField;
+
+  /**
+   * Hairprize field in *Bestsellers → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bestsellers.items[].hairprize
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hairprize: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Bestsellers Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BestsellersSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BestsellersSliceDefaultPrimary>,
+  Simplify<BestsellersSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Bestsellers*
+ */
+type BestsellersSliceVariation = BestsellersSliceDefault;
+
+/**
+ * Bestsellers Shared Slice
+ *
+ * - **API ID**: `bestsellers`
+ * - **Description**: Bestsellers
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BestsellersSlice = prismic.SharedSlice<
+  "bestsellers",
+  BestsellersSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -293,10 +441,16 @@ declare module "@prismicio/client" {
       AppSettingsDocument,
       AppSettingsDocumentData,
       AppSettingsDocumentDataNavigationItem,
+      AppSettingsDocumentDataHaircontainerItem,
       HomePageDocument,
       HomePageDocumentData,
       HomePageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      BestsellersSlice,
+      BestsellersSliceDefaultPrimary,
+      BestsellersSliceDefaultItem,
+      BestsellersSliceVariation,
+      BestsellersSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
