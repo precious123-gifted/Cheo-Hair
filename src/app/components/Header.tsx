@@ -2,6 +2,7 @@ import { createClient } from "@/prismicio";
 import Image from "next/image";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { Kelly_Slab } from "next/font/google";
+import Bounded from "./Bounded";
 
 
 
@@ -14,10 +15,8 @@ export default async function Header() {
     const settings = await client.getSingle('app_settings')
 
   return (
-    <div
-    style={kellySlab.style}
-     className="w-full h-fit bg-[#F5ECF1] flex flex-col  items-center pt-2">
-  <div className="content w-[95%] h-full flex flex-row justify-between items-center relative">
+    <Bounded>
+  <div className="content w-full  flex flex-row justify-between items-center relative pt-2">
 <div className="logo cursor-pointer object-contain  w-[17vw] portrait:w-[32vw]  ">
 <PrismicNextImage  field={settings.data.logo} />
       </div>
@@ -90,6 +89,6 @@ export default async function Header() {
 </div>
 
 </div>
-    </div>
+    </Bounded>
   )
 }
