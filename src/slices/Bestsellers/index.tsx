@@ -1,9 +1,17 @@
 import { createClient } from "@/prismicio";
-import { Content } from "@prismicio/client";
+import { Content,isFilled } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { BestsellersSlice } from "../../../prismicio-types";
 import Bounded from "@/app/components/Bounded";
 import { PrismicNextImage } from "@prismicio/next";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import HairProduct from "./HairProduct";
+import { v4 as uuidv4 } from 'uuid';
+import { useDataCarrier } from "@/StateManager";
+import HairExpandedContainer from "./HairExpandedContainer";
+import ProductInfoPage from "@/app/product/[...id]/page";
+import { BestsellersSliceDefault } from "../../../prismicio-types";
+// import { useStateContext } from "@/StateManager";
 
 /**
  * Props for `Bestsellers`.
@@ -13,19 +21,62 @@ export type BestsellersProps = SliceComponentProps<Content.BestsellersSlice>;
 /**
  * Component for "Bestsellers" Slices.
  */
-const Bestsellers = async ({ slice }: BestsellersProps) => {
+
+
+interface Product {
+  hairimage?: Object; // Optional image field
+  hairtitle: string;
+  hairdescription: string;
+  hairprize?: string; // Optional price field
+  // ... other product properties based on your Prismic data
+}
+
+interface HairProductl {
+  id: string; // Assuming you have an ID for each product
+  hairimage?: string; // Optional image field (adjust based on your data structure)
+  hairtitle: string;
+  hairdescription: string;
+  hairprize?: string; // Optional price field (adjust based on your data structure)
+  // ... other product properties
+}
+const Bestsellers = async ({ slice }: BestsellersProps ) => {
 
   const client = createClient()
-
-  const settings = await client.getSingle('app_settings')
-
+  
 
 
-const alertt = () =>{
+  const processedData = slice.items.map((item :any ) => {
+    return {
+      id: uuidv4(), // Generate unique ID for each item
+      product: item, // Assign the item object to the product property
+    };
+  });
 
-alert('working')
 
-}
+ 
+ 
+  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL || `http://localhost:${process.env.PORT}`;
+  const url = `${baseUrl}/api/processedData`;
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(processedData),
+  });
+
+
+  // if (!response.ok) {
+  //   console.error('Error fetching data:', response.statusText);
+  //   // Optionally, throw an error or handle the failure differently
+  //   // throw new Error('Failed to fetch data');
+  // } else {
+  //   console.log('Data successfully sent to backend!');
+  //   // You can further process the response here
+  //   // For example, if you expect JSON data back:
+  //   const responseData = await response.json();
+  //   console.log('Response data:', responseData);
+  // }
+
 
 
   return (
@@ -43,44 +94,21 @@ alert('working')
 <div className="hairsection w-full grid  portrait:grid-cols-2 landscape:grid-cols-4  gap-5   gap-y-20">
 
 
+  
 
+   {processedData.map((itemWithId, index) => (
+          <HairProduct
+            key={itemWithId.id} // Use the generated ID as a unique key
+            id={itemWithId.id} // Pass the generated ID as a prop
+            item={itemWithId.product} // Pass the product data
+            index={index} 
+            
+          />
+        ))}
 
-      {slice.items.map((item, index) => (
-        <div key={index}   className="hairContainer  w-auto flex flex-col items-center text-center space-y-1 ">
-          <div className="hairImage cursor-pointer w-[12vw] portrait:w-[26vw]  portrait:sm:w-[23vw] object-contain">
-            <PrismicNextImage field={item.hairimage}  className="rounded-lg"/>
-          </div>
-          <div className="hairTitle cursor-pointer text-[1.5vw] portrait:text-[5vw]">{item.hairtitle}</div>
-          <div className="hairDescription  cursor-pointer text-[1vw]  portrait:text-[4vw] portrait:sm:text-[3vw]  ">{item.hairdescription}</div>
-          <div className="hairPrize cursor-pointer  font-medium text-green-900 portrait:text-[4vw]">{item.hairprize}</div>
-        </div>
-      ))}
-   
-
+       <HairExpandedContainer processedData={processedData}/> 
+       <ProductInfoPage processedData={processedData}/>
 </div>
-
-
-<div className="hairexpandedcontainer hidden absolute z-30 w-auto bg-[#ebe4e8] rounded-xl flex flex-col items-center text-center space-y-11 px-[4vw]  portrait:px-[8vw] py-[2vw] portrait:py-[8vw]">
-<div className="exiticon ml-[45vw] portrait:ml-[60vw] "><PrismicNextImage field={settings.data.exiticon}  className="w-[2vw] portrait:w-[6vw] portrait:sm:w-[4vw] absolute cursor-pointer" /></div>
-      
-        <div  className="hairContainer   flex flex-col items-center text-center space-y-1 ">
-          <div className="hairImage w-[17vw] portrait:w-[70vw]  portrait:sm:w-[40vw] object-contain">
-            <PrismicNextImage field={slice.items[3].hairimage}  className="rounded-lg"/>
-          </div>
-          <div className="hairTitle text-[1.5vw] portrait:text-[5vw]">{slice.items[3].hairtitle}</div>
-          <div className="hairDescription text-[1vw]  portrait:text-[4vw] portrait:sm:text-[3vw]  ">{slice.items[3].hairdescription}</div>
-          <div className="hairPrize   font-medium text-green-900 portrait:text-[4vw]">{slice.items[3].hairprize}</div>
-        </div>
-     
-        <div className="addtocartbtn  px-10 py-2 bg-[#2E2820] cursor-pointer text-[#F5ECF1] text-[1.5vw] portrait:text-[6vw]  portrait:sm:text-[4vw] rounded-md">Add to Cart</div>
-
-</div>
-
-
-
-
-
-
 
 </div>
 
@@ -88,4 +116,17 @@ alert('working')
   );
 };
 
+
+
+
 export default Bestsellers;
+
+
+
+
+
+
+
+
+
+

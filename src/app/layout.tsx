@@ -4,6 +4,7 @@ import "./globals.css";
 import { createClient } from "@/prismicio";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { RefsProvider } from "@/StateManager";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,6 +34,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         
+<RefsProvider>
+
         <Header/>
         <div className="relative">
           <div className="menuslidebackground  absolute z-10 bg-[#47443F] opacity-[98%] hidden h-full w-full">
@@ -42,7 +45,7 @@ export default function RootLayout({
         </div>
        
         <Footer/>
-       
+</RefsProvider>
         </body>
     </html>
   );

@@ -14,12 +14,15 @@
     "@prismicio/next": "^1.5.0",
     "@prismicio/react": "^2.7.4",
     "clsx": "^2.1.0",
+    "mongoose": "^8.3.3",
     "next": "14.2.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.38",
+    "@types/mongoose": "^5.11.97",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
