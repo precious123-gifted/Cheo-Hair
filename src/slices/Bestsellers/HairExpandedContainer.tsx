@@ -21,7 +21,7 @@ console.log(processedData[0].id)
 
   return (
     <div>
-      <div className="hairexpandedcontainer  absolute z-30 w-auto bg-[#ebe4e8] rounded-xl flex flex-col items-center text-center space-y-11 px-[4vw]  portrait:px-[8vw] py-[2vw] portrait:py-[8vw]">
+      <div className="hairexpandedcontainer  hidden absolute z-30 w-auto bg-[#ebe4e8] rounded-xl flex flex-col items-center text-center space-y-11 px-[4vw]  portrait:px-[8vw] py-[2vw] portrait:py-[8vw]">
 <div className="exiticon ml-[45vw] portrait:ml-[60vw] ">
   {/* <PrismicNextImage field={settings.data.exiticon}  className="w-[2vw] portrait:w-[6vw] portrait:sm:w-[4vw] absolute cursor-pointer" /> */}
   </div>

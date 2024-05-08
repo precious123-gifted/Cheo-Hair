@@ -9,7 +9,7 @@ import HairProduct from "./HairProduct";
 import { v4 as uuidv4 } from 'uuid';
 import { useDataCarrier } from "@/StateManager";
 import HairExpandedContainer from "./HairExpandedContainer";
-import ProductInfoPage from "@/app/product/[...id]/page";
+import ProductInfoPage from "@/app/product/[id]/page";
 import { BestsellersSliceDefault } from "../../../prismicio-types";
 // import { useStateContext } from "@/StateManager";
 
@@ -23,22 +23,8 @@ export type BestsellersProps = SliceComponentProps<Content.BestsellersSlice>;
  */
 
 
-interface Product {
-  hairimage?: Object; // Optional image field
-  hairtitle: string;
-  hairdescription: string;
-  hairprize?: string; // Optional price field
-  // ... other product properties based on your Prismic data
-}
+ 
 
-interface HairProductl {
-  id: string; // Assuming you have an ID for each product
-  hairimage?: string; // Optional image field (adjust based on your data structure)
-  hairtitle: string;
-  hairdescription: string;
-  hairprize?: string; // Optional price field (adjust based on your data structure)
-  // ... other product properties
-}
 const Bestsellers = async ({ slice }: BestsellersProps ) => {
 
   const client = createClient()
@@ -47,16 +33,20 @@ const Bestsellers = async ({ slice }: BestsellersProps ) => {
 
   const processedData = slice.items.map((item :any ) => {
     return {
-      id: uuidv4(), // Generate unique ID for each item
-      product: item, // Assign the item object to the product property
+      id: uuidv4(), 
+      product: item, 
     };
   });
 
 
  
  
+
+  
   const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL || `http://localhost:${process.env.PORT}`;
   const url = `${baseUrl}/api/processedData`;
+
+const sendData = async () =>{
 
   const response = await fetch(url, {
     method: 'POST',
@@ -65,19 +55,27 @@ const Bestsellers = async ({ slice }: BestsellersProps ) => {
   });
 
 
-  // if (!response.ok) {
-  //   console.error('Error fetching data:', response.statusText);
-  //   // Optionally, throw an error or handle the failure differently
-  //   // throw new Error('Failed to fetch data');
-  // } else {
-  //   console.log('Data successfully sent to backend!');
-  //   // You can further process the response here
-  //   // For example, if you expect JSON data back:
-  //   const responseData = await response.json();
-  //   console.log('Response data:', responseData);
-  // }
+}
+sendData()
 
 
+const getData = async () =>{
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+      console.error('Error fetching data:', response.statusText);
+    
+    } else {
+      console.log('Data successfully recieved in frontend!');
+    }
+
+    return response.json()
+
+}
+
+const products = await getData()
+console.log(`this is it : ${products}`)
 
   return (
     <Bounded
@@ -91,23 +89,14 @@ const Bestsellers = async ({ slice }: BestsellersProps ) => {
 <div className="heading  text-[3vw] portrait:sm:text-[4vw] portrait:text-[7vw] portrait:mb-10">{slice.primary.header}</div>
 
 
-<div className="hairsection w-full grid  portrait:grid-cols-2 landscape:grid-cols-4  gap-5   gap-y-20">
+<div className="hairsection w-full ">
 
 
   
+          <HairProduct products={products}/>
+         
 
-   {processedData.map((itemWithId, index) => (
-          <HairProduct
-            key={itemWithId.id} // Use the generated ID as a unique key
-            id={itemWithId.id} // Pass the generated ID as a prop
-            item={itemWithId.product} // Pass the product data
-            index={index} 
-            
-          />
-        ))}
-
-       <HairExpandedContainer processedData={processedData}/> 
-       <ProductInfoPage processedData={processedData}/>
+      
 </div>
 
 </div>
