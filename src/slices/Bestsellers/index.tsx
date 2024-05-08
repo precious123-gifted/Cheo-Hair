@@ -11,6 +11,7 @@ import { useDataCarrier } from "@/StateManager";
 import HairExpandedContainer from "./HairExpandedContainer";
 import ProductInfoPage from "@/app/product/[id]/page";
 import { BestsellersSliceDefault } from "../../../prismicio-types";
+import { headers } from "next/headers";
 // import { useStateContext } from "@/StateManager";
 
 /**
@@ -44,11 +45,12 @@ const Bestsellers = async ({ slice }: BestsellersProps ) => {
 
   
   const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL || `http://localhost:${process.env.PORT}`;
-  const url = `${baseUrl}/api/processedData` ;
+  const url = "@/app/api/processedData" ;
 
 const sendData = async () =>{
-
-  const response = await fetch(url, {
+  const host = headers().get("host");
+  const protocal = process?.env.NODE_ENV==="development"?"http":"https"
+  const response = await fetch(`${protocal}://${host}/api/processedData`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(processedData),
@@ -59,9 +61,24 @@ const sendData = async () =>{
 sendData()
 
 
+// function getBaseUrl() {
+//   if (typeof window !== 'undefined') return '';
+//   const vc = process.env.NEXT_PUBLIC_VERCEL_URL;
+//   if (vc) return `https://${vc}`;
+//   return 'http://localhost:3000';
+// }
+
+
+
+
 const getData = async () =>{
 
-  const response = await fetch(url);
+
+  const host = headers().get("host");
+  const protocal = process?.env.NODE_ENV==="development"?"http":"https"
+  let response = await fetch(`${protocal}://${host}/api/processedData`, { cache: "no-store" });
+ 
+ 
 
   if (!response.ok) {
       console.error('Error fetching data:', response.statusText);
