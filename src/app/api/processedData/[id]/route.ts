@@ -6,7 +6,8 @@ interface ID{
 id:string
 }
 
-
+export const dynamic = 'auto'
+// 'auto' | 'force-dynamic' | 'error' | 'force-static'
 export async function GET(request: NextRequest,{params}:{params:ID}) {
   
   
