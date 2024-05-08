@@ -44,7 +44,7 @@ const Bestsellers = async ({ slice }: BestsellersProps ) => {
 
   
   const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL || `http://localhost:${process.env.PORT}`;
-  const url = `${baseUrl}/api/processedData`;
+  const url = `${baseUrl}/api/processedData` ;
 
 const sendData = async () =>{
 
