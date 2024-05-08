@@ -74,6 +74,8 @@ const getData = async () =>{
 
 }
 
+if(!baseUrl)return null
+
 const products = await getData()
 console.log(`this is it : ${products}`)
 
