@@ -7,6 +7,7 @@ id:string
 }
 
 export const dynamic = 'auto'
+export const dynamicParams = true
 // 'auto' | 'force-dynamic' | 'error' | 'force-static'
 export async function GET(request: NextRequest,{params}:{params:ID}) {
   

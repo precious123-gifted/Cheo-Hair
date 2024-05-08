@@ -7,6 +7,7 @@ import dbConnect  from "@/lib/dbConnect";
 import Product from "@/lib/models/Product";
 
 export const dynamic = 'auto'
+export const dynamicParams = true
 
 export async function GET(request: NextRequest) {
   // Connect to MongoDB
