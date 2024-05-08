@@ -8,6 +8,8 @@ import Product from "@/lib/models/Product";
 
 export const dynamic = 'auto'
 export const dynamicParams = true
+export const runtime = 'nodejs'
+// 'nodejs' | 'edge'
 
 export async function GET(request: NextRequest) {
   // Connect to MongoDB
