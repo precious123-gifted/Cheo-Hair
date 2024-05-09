@@ -10,12 +10,18 @@ import Image from "next/image";
 export default function SingleProductContainer({productData}:any) {
 
 
+  const handleExitClick = () => {
+
+    window.history.back();
+  };
+
+
     
   return (
     <Bounded>
       <div className="hairexpandedcontainer   w-auto   flex flex-col  items-center text-center space-y-5  portrait:px-[8vw] py-[2vw] portrait:py-[8vw]">
 <div className="exiticon    w-full flex justify-end ">
-<Image src={exitIcon} alt="exit-icon" className="landscape:w-[2.5vw] portrait:w-[6vw] object-cover cursor-pointer"/>
+<Image onClick={handleExitClick} src={exitIcon} alt="exit-icon" className="landscape:w-[2.5vw] portrait:w-[6vw] object-cover cursor-pointer"/>
 </div>
     
 <div className="content w-full space-y-[10vw]">
