@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
 
   } catch (error) {
     console.error('Error retrieving data from MongoDB:', error);
-    return new Response('Error fetching data.', { status: 500 });
+    return new Response('Error fetching data.',  { status: 500 });
   }
 
   // Return the stored data as JSON

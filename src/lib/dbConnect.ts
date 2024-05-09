@@ -2,7 +2,7 @@
 
 import mongoose from "mongoose";
 
-const connection: { isConnected?: number } = {};
+const connection: { isConnected?:  number } = {};
 
 export default async function dbConnect() {
   if (connection.isConnected) {
