@@ -49,7 +49,7 @@ interface IProduct  {
             id={product._id}
             className="hairProduct w-auto flex flex-col items-center text-center space-y-1"
           >
-            <Link href={`/product/${product._id}`}> {/* Link to product page */}
+            <Link  href={`/product/${product._id}`}> {/* Link to product page */}
               <div className="hairImage cursor-pointer w-[12vw] portrait:w-[26vw] portrait:sm:w-[23vw] object-contain">
                 <PrismicNextImage field={product.product.hairimage} className="rounded-lg" />
               </div>
