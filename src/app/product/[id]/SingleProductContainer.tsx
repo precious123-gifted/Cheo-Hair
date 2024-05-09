@@ -25,7 +25,10 @@ export default function SingleProductContainer({productData}:any) {
     
           <PrismicNextImage  field={productData.product.hairimage}  className="rounded-lg"/>
         </div>
-        <div className="hairTitle text-[1.5vw] portrait:text-[5vw]">
+
+<div className="hairdetails space-y-[1vw]">
+
+    <div className="hairTitle text-[1.5vw] portrait:text-[5vw]">
           {productData.product.hairtitle}
           
           </div>
@@ -36,6 +39,9 @@ export default function SingleProductContainer({productData}:any) {
         {productData.product.hairprize}
         </div>
       </div>
+</div>
+
+      
    
       <div className="addtocartbtn  px-10 py-2 bg-[#2E2820] cursor-pointer text-[#F5ECF1] text-[1.5vw] portrait:text-[6vw]  portrait:sm:text-[4vw] rounded-md">Add to Cart</div>
 
