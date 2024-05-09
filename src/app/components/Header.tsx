@@ -29,7 +29,7 @@ export default async function Header() {
       </div>
 
 
- <div className="icon  w-[6vw] mb-5 portrait:sm:mb-8">
+ <div className="icon  w-[6vw] portrait:sm:w-[4vw] mb-5 portrait:sm:mb-8">
 
 <div className=" menuicon landscape:hidden cursor-pointer object-contain  absolute">
 <PrismicNextImage  field={settings.data.menuicon} />
