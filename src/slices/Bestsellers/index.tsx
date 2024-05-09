@@ -45,7 +45,7 @@ const Bestsellers = async ({ slice }: BestsellersProps ) => {
   const isDevelopment = process.env.NODE_ENV === 'development';
   const baseUrl = isDevelopment
     ? `http://localhost:${process.env.PORT}`
-    : "https://cheo-hair-precious123gifteds-projects.vercel.app/";
+    : process.env.NEXT_PUBLIC_VERCEL_URL;
   const url = `${baseUrl}/api/processedData`;
   
   
