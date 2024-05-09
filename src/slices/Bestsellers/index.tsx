@@ -42,10 +42,15 @@ const Bestsellers = async ({ slice }: BestsellersProps ) => {
 
  
  
-
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  const baseUrl = isDevelopment
+    ? `http://localhost:${process.env.PORT}`
+    : "https://cheo-hair-precious123gifteds-projects.vercel.app/";
+  const url = `${baseUrl}/api/processedData`;
   
-  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL || `http://localhost:${process.env.PORT}`;
-  const url = `${baseUrl}/api/processedData` ;
+  
+ 
+ 
 
 const sendData = async () =>{
 
