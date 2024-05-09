@@ -3,11 +3,7 @@ import {Schema,model,models} from "mongoose"
 
 
   const productSchema:Schema  = new Schema({
-    id: {
-      type: String,
-      required: true,
-      unique: true 
-    },
+   
     product: {
       type: Object,
       required: true,
