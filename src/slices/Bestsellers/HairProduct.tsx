@@ -1,15 +1,8 @@
 
-//   // if (imageElement) {
 "use client"
-  import { usePrismicClient } from "@prismicio/react";
-  
-  import { PrismicNextImage } from "@prismicio/next"
-  import { BestsellersSliceDefaultItem } from "../../../prismicio-types";
-  import { useRefsContext } from "@/StateManager";
-  import { useContext, useEffect, useRef, useState } from "react";
-  import Image from "next/image";
+
+import { PrismicNextImage } from "@prismicio/next"
 import Link from "next/link";
-import { title } from "process";
 
   
   
@@ -25,19 +18,19 @@ import { title } from "process";
        
       return (
       
-        <div className="hairProductsContainer w-full grid  portrait:grid-cols-2 landscape:grid-cols-4  gap-5   gap-y-20"> {/* Wrap all products */}
+        <div className="hairProductsContainer w-full grid  portrait:grid-cols-2 landscape:grid-cols-4  gap-5   gap-y-20"> 
         {products.map((product:any) => (
           <div
-            key={product._id} // Unique key for each product
+            key={product._id}
             id={product._id}
             className="hairProduct w-auto flex flex-col items-center text-center space-y-1"
           >
-            <Link  href={`/product/${product._id}`}> {/* Link to product page */}
+            <Link  href={`/product/${product._id}`}> 
               <div className="hairImage cursor-pointer w-[12vw] portrait:w-[26vw] portrait:sm:w-[23vw] object-contain">
                 <PrismicNextImage field={product.product.hairimage} className="rounded-lg" />
               </div>
             </Link>
-            <Link href={`/product/${product._id}`}> {/* Link to product page */}
+            <Link href={`/product/${product._id}`}> 
               <div className="hairTitle cursor-pointer text-[1.5vw] portrait:text-[5vw]">{product.product.hairtitle}</div>
             </Link>
             <div className="hairDescription cursor-pointer text-[1vw] portrait:text-[4vw] portrait:sm:text-[3vw]">{product.product.hairdescription}</div>

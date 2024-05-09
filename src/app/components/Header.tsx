@@ -1,5 +1,5 @@
+
 import { createClient } from "@/prismicio";
-import Image from "next/image";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { Kelly_Slab } from "next/font/google";
 import Bounded from "./Bounded";
@@ -9,6 +9,13 @@ import Bounded from "./Bounded";
 
 const kellySlab = Kelly_Slab({subsets: ["latin"],weight: "400"})
 export default async function Header() {
+
+  interface forString{
+
+    label: string,
+    link: any
+
+  }
 
     const client = createClient()
 
@@ -41,7 +48,7 @@ export default async function Header() {
 <div className="links portrait:hidden w-[40%] flex items-center ">
 <ul className=" flex justify-between w-[80%] text-[1.5vw] mr-10">
 
-{settings.data.navigation.map(({label,link})=>(
+{settings.data.navigation.map(({label,link}:forString)=>(
 <li key={label}>
 <PrismicNextLink field={link}>{label}</PrismicNextLink>
 
@@ -70,7 +77,7 @@ export default async function Header() {
 <div className="links w-full  flex flex-col justify-between items-start space-y-6 portrait:sm:space-y-8">
 <ul className=" space-y-4 portrait:sm:space-y-6">
 
-{settings.data.navigation.map(({label,link})=>(
+{settings.data.navigation.map(({label,link}:forString)=>(
 <li key={label} className="bg-[#E2CABE] p-2 rounded-sm">
 <PrismicNextLink field={link}>{label}</PrismicNextLink>
 

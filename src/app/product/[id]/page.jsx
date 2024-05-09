@@ -1,3 +1,4 @@
+
 import SingleProductContainer from "./SingleProductContainer";
 
 const isDevelopment = process.env.NODE_ENV === 'development' ;
@@ -22,38 +23,18 @@ export async function generateStaticParams() {
     
 
     return productsData.map((data) => ({
-      id: data.id?.toString(), // Use optional chaining to handle missing 'id'
+      id: data.id?.toString(), 
     }));
   } catch (error) {
     console.error('Error generating static params:', error);
-    // Handle the error gracefully, potentially return an empty array or log a message
-    return []; // Example: Return an empty array in case of error
+  
+    return []; 
   }
 }
 
-// async function getProduct(id) {
-//   const url = `${baseUrl}/api/processedData`;
 
-//   try {
-//     const response = await fetch(url);
-
-//     if (!response.ok) {
-//       throw new Error(`Error fetching product ${id}: ${response.statusText}`);
-//     }
-
-//     const productData = await response.json();
-//     return productData;
-//   } catch (error) {
-//     console.error('Error fetching product:', error);
-//     // Handle the error gracefully, potentially return null or a default value
-//     return null; // Example: Return null in case of error
-//   }
-// }
-// 
-
-
-async function getProduct(id) { // Ensure 'id' is a string
-  const url = `${baseUrl}/api/processedData`; // Use the correct endpoint for product details
+async function getProduct(id) { 
+  const url = `${baseUrl}/api/processedData`; 
 
   try {
     const response = await fetch(url);
@@ -62,21 +43,21 @@ async function getProduct(id) { // Ensure 'id' is a string
       throw new Error(`Error fetching product ${id}: ${response.statusText}`);
     }
 
-    const productsData = await response.json(); // Assuming response contains an array
+    const productsData = await response.json(); 
 
-    // Filter for the product with matching ID
+   
     const product = productsData.find(product => product._id === id);
 
-    // Return the product or handle the case if none is found
+   
     if (product) {
       return product;
     } else {
       console.warn(`Product with ID ${id} not found.`);
-      return null; // Or return a default value as needed
+      return null; 
     }
   } catch (error) {
     console.error('Error fetching product:', error);
-    return null; // Example: Return null in case of error
+    return null; 
   }
 }
 
