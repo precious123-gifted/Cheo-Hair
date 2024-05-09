@@ -62,7 +62,7 @@ sendData()
 
 const getData = async () =>{
 
-  const response = await fetch(url,{cache: 'no-store'});
+  const response = await fetch(url);
 
   if (!response.ok) {
       console.error('Error fetching data:', response.statusText);
