@@ -42,7 +42,7 @@ const Bestsellers = async ({ slice }: BestsellersProps ) => {
 
  
  
-  const isDevelopment = process.env.NODE_ENV === 'development';
+  const isDevelopment = process.env.NODE_ENV === 'development' ;
   const baseUrl = isDevelopment
     ? `http://localhost:${process.env.PORT}`
     : process.env.NEXT_PUBLIC_VERCEL_URL;
