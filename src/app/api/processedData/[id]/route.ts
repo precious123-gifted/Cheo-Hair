@@ -6,7 +6,8 @@ interface ID{
 id:string
 }
 
-export const dynamic = 'auto'
+
+export const dynamic = 'force-dynamic'
 export const dynamicParams = true
 export const runtime = 'nodejs'
 // 'nodejs' | 'edge'

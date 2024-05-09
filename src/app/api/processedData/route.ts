@@ -6,7 +6,7 @@ import { createClient } from "../../../prismicio";
 import dbConnect  from "@/lib/dbConnect";
 import Product from "@/lib/models/Product";
 
-export const dynamic = 'auto'
+export const dynamic = 'force-dynamic'
 export const dynamicParams = true
 export const runtime = 'nodejs'
 // 'nodejs' | 'edge'
