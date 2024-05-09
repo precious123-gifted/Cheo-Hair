@@ -24,7 +24,7 @@ const Whychooseus = ({ slice }: WhychooseusProps): JSX.Element => {
 
 <div className="header text-[2vw] portrait:sm:text-[4vw] portrait:text-[7vw] text-center">{slice.primary.header}</div>
 
-<div className="writeup  text-[1.4vw] portrait:sm:text-[3vw] portrait:text-[5vw]    text-center leading-[2.5vw] portrait:leading-[8vw] portrait:sm:leading-[5vw]">{slice.primary.writeup}</div>
+<div className="writeup text-[1.4vw] portrait:sm:text-[3vw] portrait:text-[5vw]  text-center leading-[2.5vw] portrait:leading-[8vw] portrait:sm:leading-[5vw]">{slice.primary.writeup}</div>
 
 </div>
 
