@@ -12,7 +12,7 @@ export default async function Header() {
 
   interface forString{
 
-    label: string,
+    label: any,
     link: any
 
   }
