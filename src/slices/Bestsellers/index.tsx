@@ -24,7 +24,7 @@ export type BestsellersProps = SliceComponentProps<Content.BestsellersSlice>;
 
 
  
-export const dynamic = 'force-dynamic'
+
 
 const Bestsellers = async ({ slice }: BestsellersProps ) => {
 
@@ -62,7 +62,7 @@ sendData()
 
 const getData = async () =>{
 
-  const response = await fetch(url);
+  const response = await fetch(url,{cache: 'no-store'});
 
   if (!response.ok) {
       console.error('Error fetching data:', response.statusText);
