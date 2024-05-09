@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 const connection: { isConnected?:  number } = {};
 
 export default async function dbConnect() {
-  if (connection.isConnected) {
+  if (connection.isConnected)  {
     return;
   }
 
