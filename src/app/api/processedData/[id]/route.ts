@@ -6,10 +6,9 @@ interface ID{
 id:string
 }
 
-
-export const dynamic = 'force-dynamic'
-export const dynamicParams = true
-export const runtime = 'nodejs'
+// export const dynamic = 'auto'
+// export const dynamicParams = true
+// export const runtime = 'nodejs'
 // 'nodejs' | 'edge'
 // 'auto' | 'force-dynamic' | 'error' | 'force-static'
 export async function GET(request: NextRequest,{params}:{params:ID}) {
@@ -32,9 +31,7 @@ export async function GET(request: NextRequest,{params}:{params:ID}) {
       }
   
       // Return the product data as JSON
-      const response = NextResponse.json(product);
-      response.headers.set('Cache-Control', 'no-cache, no-store');
-      return response;
+      return NextResponse.json(product);
       
     } catch (error) {
       console.error('Error retrieving product:', error);

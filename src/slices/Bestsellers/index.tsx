@@ -8,7 +8,6 @@ import { useContext, useEffect, useRef } from "react";
 import HairProduct from "./HairProduct";
 import { v4 as uuidv4 } from 'uuid';
 import { useDataCarrier } from "@/StateManager";
-import HairExpandedContainer from "./HairExpandedContainer";
 import ProductInfoPage from "@/app/product/[id]/page";
 import { BestsellersSliceDefault } from "../../../prismicio-types";
 // import { useStateContext } from "@/StateManager";
@@ -34,8 +33,7 @@ const Bestsellers = async ({ slice }: BestsellersProps ) => {
 
   const processedData = slice.items.map((item :any ) => {
     return {
-      id: uuidv4(), 
-      product: item, 
+            product: item, 
     };
   });
 

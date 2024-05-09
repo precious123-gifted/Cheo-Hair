@@ -6,9 +6,9 @@ import { createClient } from "../../../prismicio";
 import dbConnect  from "@/lib/dbConnect";
 import Product from "@/lib/models/Product";
 
-export const dynamic = 'force-dynamic'
-export const dynamicParams = true
-export const runtime = 'nodejs'
+// export const dynamic = 'auto'
+// export const dynamicParams = true
+// export const runtime = 'nodejs'
 // 'nodejs' | 'edge'
 
 export async function GET(request: NextRequest) {
@@ -35,13 +35,8 @@ export async function GET(request: NextRequest) {
     return new Response('Error fetching data.', { status: 500 });
   }
 
-  const response = new Response(JSON.stringify(storedData));
-
-  // Set Cache-Control headers to prevent caching
-  response.headers.set('Cache-Control', 'no-cache, no-store');
-
-  // Return the response with cache-control headers
-  return response;
+  // Return the stored data as JSON
+  return new Response(JSON.stringify(storedData), { status: 200 });
 }
 
 

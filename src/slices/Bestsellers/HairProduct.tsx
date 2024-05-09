@@ -13,23 +13,6 @@ import { title } from "process";
 
   
   
-  
-  
-  // interface HairProductProps {
-  //     item: BestsellersSliceDefaultItem; 
-  //     index: number;
-  //     key: string | number; 
-  //    id:string
-  //   }
-interface IProduct  {
-     id: string;
-     product: {
-       hairimage: object; // Assuming you don't have a specific schema for hair image
-       hairtitle: string;
-       hairdescription: string;
-       hairprize: number; // Assuming you want to store prize as a string
-     };
-   }
 
 
 
