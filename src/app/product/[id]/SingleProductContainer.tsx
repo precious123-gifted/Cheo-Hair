@@ -48,7 +48,7 @@ export default function SingleProductContainer({productData}:any) {
 </div>
    
 
-      <div className="addtocartbtn  mt-[4vw] px-10 py-2 bg-[#2E2820] cursor-pointer text-[#F5ECF1] text-[1.5vw] portrait:text-[6vw]  portrait:sm:text-[4vw] rounded-md">Add to Cart</div>
+      <div className="portrait:hidden addtocartbtn  mt-[4vw] px-10 py-2 bg-[#2E2820] cursor-pointer text-[#F5ECF1] text-[1.5vw] portrait:text-[6vw]  portrait:sm:text-[4vw] rounded-md">Add to Cart</div>
 
       </div>
 </div>
