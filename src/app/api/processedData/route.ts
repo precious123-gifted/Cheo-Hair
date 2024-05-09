@@ -35,8 +35,13 @@ export async function GET(request: NextRequest) {
     return new Response('Error fetching data.', { status: 500 });
   }
 
-  // Return the stored data as JSON
-  return new Response(JSON.stringify(storedData), { status: 200 });
+  const response = new Response(JSON.stringify(storedData));
+
+  // Set Cache-Control headers to prevent caching
+  response.headers.set('Cache-Control', 'no-cache, no-store');
+
+  // Return the response with cache-control headers
+  return response;
 }
 
 
