@@ -45,8 +45,8 @@ export default async function Header() {
 
 
 
-<div className="links portrait:hidden w-[40%] flex items-center ">
-<ul className=" flex justify-between w-[80%] text-[1.5vw] mr-10">
+<div className="links portrait:hidden w-auto space-x-[4vw] flex items-center ">
+<ul className=" flex justify-between w-[80%] text-[1.5vw] space-x-[6vw]">
 
 {settings.data.navigation.map(({label,link}:forString)=>(
 <li key={label}>
@@ -58,8 +58,8 @@ export default async function Header() {
 
 </ul>
 
-<div className="carticon cursor-pointer object-contain  w-[2.5vw]">
-<PrismicNextImage  field={settings.data.carticon} />
+<div className="carticon cursor-pointer ">
+<PrismicNextImage  field={settings.data.carticon} className="object-contain  w-[2.5vw]"/>
 </div>
 
 </div>

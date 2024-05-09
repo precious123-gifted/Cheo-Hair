@@ -1,5 +1,10 @@
+
 "use client"
+
 import { PrismicNextImage } from "@prismicio/next";
+import Bounded from "@/app/components/Bounded";
+import exitIcon from "../../../../public/exiticon.png"
+import Image from "next/image";
 
 
 export default function SingleProductContainer({productData}:any) {
@@ -7,14 +12,16 @@ export default function SingleProductContainer({productData}:any) {
 
     
   return (
-    <div>
-      <div className="hairexpandedcontainer  absolute z-30 w-auto bg-[#ebe4e8] rounded-xl flex flex-col items-center text-center space-y-11 px-[4vw]  portrait:px-[8vw] py-[2vw] portrait:py-[8vw]">
-<div className="exiticon ml-[45vw] portrait:ml-[60vw] ">
-
+    <Bounded>
+      <div className="hairexpandedcontainer   w-auto   flex flex-col  items-center text-center space-y-11  portrait:px-[8vw] py-[2vw] portrait:py-[8vw]">
+<div className="exiticon    w-full flex justify-end ">
+<Image src={exitIcon} alt="exit-icon" className="landscape:w-[2.5vw] portrait:w-[6vw] object-cover cursor-pointer"/>
 </div>
     
-      <div className="hairContainer   flex flex-col items-center text-center space-y-1 ">
-        <div  className="hairImage w-[17vw] portrait:w-[70vw]  portrait:sm:w-[40vw] object-contain">
+<div className="content w-full">
+
+   <div className="hairContainer   flex flex-col items-center text-center space-y-1 ">
+        <div  className="hairImage landscape:w-5 portrait:w-full   portrait:sm:w-[40vw] object-contain">
     
           <PrismicNextImage  field={productData.product.hairimage}  className="rounded-lg"/>
         </div>
@@ -33,6 +40,10 @@ export default function SingleProductContainer({productData}:any) {
       <div className="addtocartbtn  px-10 py-2 bg-[#2E2820] cursor-pointer text-[#F5ECF1] text-[1.5vw] portrait:text-[6vw]  portrait:sm:text-[4vw] rounded-md">Add to Cart</div>
 
 </div>
-    </div>
+
+     
+</div>
+    </Bounded>
+    
   )
 }
