@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "whychooseus": {
+              "type": "SharedSlice"
+            },
             "bestsellers": {
               "type": "SharedSlice"
             },

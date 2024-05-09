@@ -198,7 +198,10 @@ export type AppSettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomePageDocumentDataSlicesSlice = BestsellersSlice | HeroSlice;
+type HomePageDocumentDataSlicesSlice =
+  | WhychooseusSlice
+  | BestsellersSlice
+  | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -428,6 +431,61 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Primary content in *Whychooseus → Primary*
+ */
+export interface WhychooseusSliceDefaultPrimary {
+  /**
+   * Header field in *Whychooseus → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: whychooseus.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  header: prismic.KeyTextField;
+
+  /**
+   * Writeup field in *Whychooseus → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: whychooseus.primary.writeup
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  writeup: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Whychooseus Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WhychooseusSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WhychooseusSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Whychooseus*
+ */
+type WhychooseusSliceVariation = WhychooseusSliceDefault;
+
+/**
+ * Whychooseus Shared Slice
+ *
+ * - **API ID**: `whychooseus`
+ * - **Description**: Whychooseus
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WhychooseusSlice = prismic.SharedSlice<
+  "whychooseus",
+  WhychooseusSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -455,6 +513,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      WhychooseusSlice,
+      WhychooseusSliceDefaultPrimary,
+      WhychooseusSliceVariation,
+      WhychooseusSliceDefault,
     };
   }
 }

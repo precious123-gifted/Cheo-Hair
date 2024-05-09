@@ -1,0 +1,33 @@
+{
+  "id": "whychooseus",
+  "type": "SharedSlice",
+  "name": "Whychooseus",
+  "description": "Whychooseus",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "header": {
+          "type": "Text",
+          "config": {
+            "label": "Header",
+            "placeholder": ""
+          }
+        },
+        "writeup": {
+          "type": "Text",
+          "config": {
+            "label": "Writeup",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
