@@ -18,7 +18,7 @@ export default function SingleProductContainer({productData}:any) {
 <Image src={exitIcon} alt="exit-icon" className="landscape:w-[2.5vw] portrait:w-[6vw] object-cover cursor-pointer"/>
 </div>
     
-<div className="content w-full">
+<div className="content w-full space-y-[10vw]">
 
    <div className="hairContainer   flex flex-col items-center text-center space-y-1 ">
         <div  className="hairImage landscape:w-5 portrait:w-full   portrait:sm:w-[40vw] object-contain">
