@@ -32,7 +32,9 @@ export async function GET(request: NextRequest,{params}:{params:ID}) {
       }
   
       // Return the product data as JSON
-      return NextResponse.json(product);
+      const response = NextResponse.json(product);
+      response.headers.set('Cache-Control', 'no-cache, no-store');
+      return response;
       
     } catch (error) {
       console.error('Error retrieving product:', error);
