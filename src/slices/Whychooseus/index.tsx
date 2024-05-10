@@ -1,6 +1,7 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/app/components/Bounded";
+import { DetectTypesProviderConfig } from "prismic-ts-codegen";
 
 /**
  * Props for `Whychooseus`.
@@ -16,7 +17,7 @@ const Whychooseus = ({ slice }: WhychooseusProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
 
-      className="pt-[2vw] portrait:pt-[6vw] portrait:sm:pt-[3vw] pb-5 bg-[#47412A] text-[#DAD3D7] space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
+      className="pt-[2vw] portrait:pt-[6vw] portrait:sm:pt-[3vw] pb-5 rounded bg-[#47412A] text-[#DAD3D7] space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
     >
      
 
