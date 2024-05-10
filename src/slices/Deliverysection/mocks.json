@@ -1,0 +1,14 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"writeup": {
+				"__TYPE__": "FieldContent",
+				"value": "are",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

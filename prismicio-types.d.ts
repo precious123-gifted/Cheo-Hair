@@ -199,6 +199,7 @@ export type AppSettingsDocument<Lang extends string = string> =
   >;
 
 type HomePageDocumentDataSlicesSlice =
+  | DeliverysectionSlice
   | TestimonialsSlice
   | WhychooseusSlice
   | BestsellersSlice
@@ -368,6 +369,51 @@ type BestsellersSliceVariation = BestsellersSliceDefault;
 export type BestsellersSlice = prismic.SharedSlice<
   "bestsellers",
   BestsellersSliceVariation
+>;
+
+/**
+ * Primary content in *Deliverysection → Default → Primary*
+ */
+export interface DeliverysectionSliceDefaultPrimary {
+  /**
+   * Writeup field in *Deliverysection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: deliverysection.default.primary.writeup
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  writeup: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Deliverysection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DeliverysectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DeliverysectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Deliverysection*
+ */
+type DeliverysectionSliceVariation = DeliverysectionSliceDefault;
+
+/**
+ * Deliverysection Shared Slice
+ *
+ * - **API ID**: `deliverysection`
+ * - **Description**: Deliverysection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DeliverysectionSlice = prismic.SharedSlice<
+  "deliverysection",
+  DeliverysectionSliceVariation
 >;
 
 /**
@@ -590,6 +636,10 @@ declare module "@prismicio/client" {
       BestsellersSliceDefaultItem,
       BestsellersSliceVariation,
       BestsellersSliceDefault,
+      DeliverysectionSlice,
+      DeliverysectionSliceDefaultPrimary,
+      DeliverysectionSliceVariation,
+      DeliverysectionSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

@@ -1,0 +1,26 @@
+{
+  "id": "deliverysection",
+  "type": "SharedSlice",
+  "name": "Deliverysection",
+  "description": "Deliverysection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "writeup": {
+          "type": "Text",
+          "config": {
+            "label": "Writeup",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
