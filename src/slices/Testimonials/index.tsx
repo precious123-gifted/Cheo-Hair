@@ -37,7 +37,7 @@ const Testimonials = ({ slice }: TestimonialsProps): JSX.Element => {
   <PrismicNextImage field={slice.items[0].testifierimage} className="w-[12vw] portrait:w-[26vw] portrait:sm:w-[23vw] object-contain rounded-full border-2 border-[#47412A]"/>
 
 </div>
-<div className="testifierName text-[2vw]  portrait:text-[6vw] portrait:sm:text-[5vw]">
+<div className="testifierName text-[2vw]  portrait:text-[5vw] portrait:sm:text-[5vw]">
 {
   slice.items[0].testifiername
 }
