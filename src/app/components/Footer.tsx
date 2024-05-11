@@ -67,7 +67,7 @@ export default async function Footer() {
   
     </div>
   
-  <div className="copyRightDiv flex portrait:flex-col justify-between px-5 py-2 text-[#14120F] text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[3.7vw]  "> <div className="preciousOG">site by PreciousOG</div>   <div className="prodigital">Cheo Hair © 2024  - All Rights Reserved</div> </div>
+  <div className="copyRightDiv flex portrait:flex-col justify-between px-5 py-2 text-[#14120F] text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[3.7vw]  "> <div className="preciousOG">site by PreciousOG</div>   <div className="prodigital">© 2024 Cheo Hair - All Rights Reserved</div> </div>
   
   
   

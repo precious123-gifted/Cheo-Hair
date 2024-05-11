@@ -21,7 +21,7 @@ const Whychooseus = ({ slice }: WhychooseusProps): JSX.Element => {
     >
      
 
-<div className="content w-full py-4 px-5 flex flex-col items-center space-y-[2.5vw] portrait:space-y-[4vw]">
+<div className="content w-full py-6 px-5 flex flex-col items-center space-y-[1vw] portrait:space-y-[4vw]">
 
 <div className="header text-[2vw] portrait:sm:text-[4vw] portrait:text-[7vw] text-center">{slice.primary.header}</div>
 

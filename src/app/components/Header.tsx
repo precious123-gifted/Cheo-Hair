@@ -30,17 +30,26 @@ export default async function Header() {
       </div>
 
 
- <div className="icon  w-[6vw] portrait:sm:w-[4vw] mb-5 portrait:sm:mb-8">
+<div className="cartNmenuDiv flex items-center relative space-x-8">
+<div className="carticon cursor-pointer object-contain  w-[6vw] portrait:sm:w-[10vw]  rounded-sm">
+<PrismicNextImage  field={settings.data.carticon} />
+</div>
 
-<div className=" menuicon landscape:hidden cursor-pointer object-contain  absolute">
+<div className="icon  portrait:sm:w-[4vw]  ">
+
+<div className=" menuicon w-[6vw]  landscape:hidden cursor-pointer object-contain  absolute">
 <PrismicNextImage  field={settings.data.menuicon} />
 </div>
 
-<div className=" exiticon landscape:hidden cursor-pointer object-contain  absolute ">
+<div className=" exiticon w-[6vw] landscape:hidden cursor-pointer object-contain   ">
 <PrismicNextImage  field={settings.data.exiticon} />
 </div>
 
 </div> 
+
+</div>
+
+
 
 
 
@@ -88,9 +97,6 @@ export default async function Header() {
 
 </ul>
 
-<div className="carticon cursor-pointer object-contain bg-[#E2CABE] w-[15vw] portrait:sm:w-[10vw] p-2 rounded-sm">
-<PrismicNextImage  field={settings.data.carticon} />
-</div>
 
 </div>
 
