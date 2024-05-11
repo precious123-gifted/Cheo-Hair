@@ -3,6 +3,7 @@ import { createClient } from "@/prismicio";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { Kelly_Slab } from "next/font/google";
 import Bounded from "./Bounded";
+import Link from "next/link";
 
 
 
@@ -25,7 +26,7 @@ export default async function Header() {
     <Bounded>
   <div className="content w-full  flex flex-row justify-between items-center relative pt-2">
 <div className="logo cursor-pointer object-contain  w-[17vw] portrait:w-[32vw]  ">
-<PrismicNextImage  field={settings.data.logo} />
+  <Link href={"/"}> <PrismicNextImage  field={settings.data.logo} /></Link>
       </div>
 
 
