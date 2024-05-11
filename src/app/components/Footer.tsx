@@ -28,9 +28,9 @@ export default async function Footer() {
   <div className="address text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">{settings.data.address}</div>
 </div>
 
-<div className="refundPolicyLink text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]"><PrismicNextLink field={settings.data.refundpolicy}>Link</PrismicNextLink></div>
-<div className="shippingPolicyLink text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]"><PrismicNextLink field={settings.data.shippingpolicy}>Link</PrismicNextLink></div>
-<div className="termsNconditionLink text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]"><PrismicNextLink field={settings.data.termsandconditions}>Link</PrismicNextLink></div>
+<div className="refundPolicyLink text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]"><PrismicNextLink field={settings.data.refundpolicy}>Refund Policy</PrismicNextLink></div>
+<div className="shippingPolicyLink text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]"><PrismicNextLink field={settings.data.shippingpolicy}>Shipping Policy</PrismicNextLink></div>
+<div className="termsNconditionLink text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]"><PrismicNextLink field={settings.data.termsandconditions}>Terms and Conditions</PrismicNextLink></div>
 
 
 </div>
@@ -41,7 +41,7 @@ export default async function Footer() {
 <div className="customerSupportSection space-y-3">
   <div className="header text-[1.7vw] portrait:sm:text-[4vw] portrait:text-[7vw]">Customer Support</div>
 
-  <div className="deliveryLink text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]"><PrismicNextLink field={settings.data.shippingpolicy}>Link</PrismicNextLink></div>
+  <div className="deliveryLink text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]"><PrismicNextLink field={settings.data.shippingpolicy}>Delivery Policy</PrismicNextLink></div>
 
     <div className="contactDiv space-y-2">
 <div className="title text-[1.6vw] portrait:sm:text-[3.5vw] portrait:text-[6.5vw]">Contact Us</div>
@@ -67,7 +67,7 @@ export default async function Footer() {
   
     </div>
   
-  <div className="copyRightDiv flex portrait:flex-col justify-between px-5 py-2 text-[#14120F] text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[3.7vw]  "> <div className="preciousOG">site by PreciousOG</div>   <div className="prodigital">Prodigital Company © 2024  - All Rights Reserved</div> </div>
+  <div className="copyRightDiv flex portrait:flex-col justify-between px-5 py-2 text-[#14120F] text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[3.7vw]  "> <div className="preciousOG">site by PreciousOG</div>   <div className="prodigital">Cheo Hair © 2024  - All Rights Reserved</div> </div>
   
   
   
