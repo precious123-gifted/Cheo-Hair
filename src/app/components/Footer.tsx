@@ -18,7 +18,7 @@ export default async function Footer() {
 
   return (
     <Bounded>
-    <div className="content bg-[#14120F] text-[#DAD3D7] w-full px-5 py-8 pt-8 flex flex-row justify-between  portrait:sm:flex-row  portrait:sm:justify-between portrait:flex-col portrait:space-y-6 portrait:sm:space-y-0  ">
+    <div className="content bg-[#1C1914] text-[#DAD3D7] w-full px-5 py-8 pt-8 flex flex-row justify-between  portrait:sm:flex-row  portrait:sm:justify-between portrait:flex-col portrait:space-y-6 portrait:sm:space-y-0  ">
 
 
 <div className="addressNpolicySection space-y-3">
