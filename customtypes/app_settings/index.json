@@ -121,6 +121,37 @@
             }
           }
         }
+      },
+      "address": {
+        "type": "Text",
+        "config": {
+          "label": "Address",
+          "placeholder": ""
+        }
+      },
+      "refundpolicy": {
+        "type": "Link",
+        "config": {
+          "label": "Refundpolicy",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "shippingpolicy": {
+        "type": "Link",
+        "config": {
+          "label": "Shippingpolicy",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "termsandconditions": {
+        "type": "Link",
+        "config": {
+          "label": "Termsandconditions",
+          "placeholder": "",
+          "select": null
+        }
       }
     }
   }

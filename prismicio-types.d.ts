@@ -180,6 +180,50 @@ interface AppSettingsDocumentData {
   haircontainer: prismic.GroupField<
     Simplify<AppSettingsDocumentDataHaircontainerItem>
   >;
+
+  /**
+   * Address field in *app_settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: app_settings.address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  address: prismic.KeyTextField;
+
+  /**
+   * Refundpolicy field in *app_settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: app_settings.refundpolicy
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  refundpolicy: prismic.LinkField;
+
+  /**
+   * Shippingpolicy field in *app_settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: app_settings.shippingpolicy
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  shippingpolicy: prismic.LinkField;
+
+  /**
+   * Termsandconditions field in *app_settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: app_settings.termsandconditions
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  termsandconditions: prismic.LinkField;
 }
 
 /**
@@ -279,7 +323,71 @@ export type HomePageDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = AppSettingsDocument | HomePageDocument;
+type PageDocumentDataSlicesSlice = BestsellersSlice | WhychooseusSlice;
+
+/**
+ * Content for page documents
+ */
+interface PageDocumentData {
+  /**
+   * Slice Zone field in *page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
+   * Meta Description field in *page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+
+export type AllDocumentTypes =
+  | AppSettingsDocument
+  | HomePageDocument
+  | PageDocument;
 
 /**
  * Primary content in *Bestsellers → Default → Primary*
@@ -559,11 +667,11 @@ export type TestimonialsSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Whychooseus → Default → Primary*
+ * Primary content in *Whychooseus → Aboutus → Primary*
  */
 export interface WhychooseusSliceDefaultPrimary {
   /**
-   * Header field in *Whychooseus → Default → Primary*
+   * Header field in *Whychooseus → Aboutus → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -573,7 +681,7 @@ export interface WhychooseusSliceDefaultPrimary {
   header: prismic.KeyTextField;
 
   /**
-   * Writeup field in *Whychooseus → Default → Primary*
+   * Writeup field in *Whychooseus → Aboutus → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -584,7 +692,7 @@ export interface WhychooseusSliceDefaultPrimary {
 }
 
 /**
- * Default variation for Whychooseus Slice
+ * Aboutus variation for Whychooseus Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -630,6 +738,9 @@ declare module "@prismicio/client" {
       HomePageDocument,
       HomePageDocumentData,
       HomePageDocumentDataSlicesSlice,
+      PageDocument,
+      PageDocumentData,
+      PageDocumentDataSlicesSlice,
       AllDocumentTypes,
       BestsellersSlice,
       BestsellersSliceDefaultPrimary,
