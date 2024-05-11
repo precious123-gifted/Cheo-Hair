@@ -20,7 +20,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-     className="pt-[1.8vw] portrait:pt-[5vw] portrait:sm:pt-[3vw] pb-5 bg-[rgb(245,236,241)]  space-y-10  portrait:space-y-80 portrait:sm:space-y-40 " >
+     className="pt-[1.8vw] portrait:pt-[4.7vw] portrait:sm:pt-[3vw] pb-5 bg-[rgb(245,236,241)]  space-y-10  portrait:space-y-80 portrait:sm:space-y-40 " >
     <div className="content w-full py-4 px-5 flex justify-between bg-[#2E2820] rounded-xl relative">
 <div className="headersection w-[50%] portrait:w-full portrait:sm:w-[50%]  h-full space-y-7">
 <div className="header1  text-[#EDE0E7] text-[4vw] portrait:sm:text-[4vw] portrait:text-[6vw] leading-tight  tracking-free"><PrismicRichText field={slice.primary.header1}/></div>
