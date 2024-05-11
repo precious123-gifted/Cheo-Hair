@@ -18,7 +18,7 @@ export default async function Footer() {
 
   return (
     <Bounded>
-    <div className="content bg-[#1C1914] text-[#DAD3D7] w-full px-5 py-8 pt-8 flex flex-row justify-between  portrait:sm:flex-row  portrait:sm:justify-between portrait:flex-col portrait:space-y-6 portrait:sm:space-y-0  ">
+    <div className="content bg-[#1C1914] text-[#d3cbcf] w-full px-5 py-8 pt-8 flex flex-row justify-between  portrait:sm:flex-row  portrait:sm:justify-between portrait:flex-col portrait:space-y-6 portrait:sm:space-y-0  ">
 
 
 <div className="addressNpolicySection space-y-3">
@@ -47,11 +47,11 @@ export default async function Footer() {
 <div className="title text-[1.6vw] portrait:sm:text-[3.5vw] portrait:text-[6.5vw]">Contact Us</div>
 
 
-<div className="icons flex space-x-4"> 
-<Image src={ gmailIcon} alt="gmail icon" className=" w-[2vw] portrait:w-[5vw] portrait:sm:w-[3.5vw] object-contain"/>
-<Image src={ whatsappIcon} alt="whatsapp icon" className=" w-[2vw] portrait:w-[5vw] portrait:sm:w-[3.5vw] object-contain"/>
-<Image src={ instagramIcon} alt="instagram icon" className=" w-[2vw] portrait:w-[5vw] portrait:sm:w-[3.5vw] object-contain"/>
-<Image src={ facebookIcon} alt="facebook icon" className=" w-[2vw] portrait:w-[5vw] portrait:sm:w-[3.5vw] object-contain"/>
+<div className="icons flex space-x-6"> 
+<Image src={ gmailIcon} alt="gmail icon" className=" w-[2vw] portrait:w-[7vw] portrait:sm:w-[3.5vw] object-contain"/>
+<Image src={ whatsappIcon} alt="whatsapp icon" className=" w-[2vw] portrait:w-[7vw] portrait:sm:w-[3.5vw] object-contain"/>
+<Image src={ instagramIcon} alt="instagram icon" className=" w-[2vw] portrait:w-[7vw] portrait:sm:w-[3.5vw] object-contain"/>
+<Image src={ facebookIcon} alt="facebook icon" className=" w-[2vw] portrait:w-[7vw] portrait:sm:w-[3.5vw] object-contain"/>
 
 </div>
 
