@@ -47,7 +47,7 @@ export default async function Footer() {
 <div className="title text-[1.6vw] portrait:sm:text-[3.5vw] portrait:text-[6.5vw]">Contact Us</div>
 
 
-<div className="icons flex space-x-6"> 
+<div className="icons flex space-x-6 portrait:space-x-9"> 
 <Image src={ gmailIcon} alt="gmail icon" className=" w-[2vw] portrait:w-[7vw] portrait:sm:w-[3.5vw] object-contain"/>
 <Image src={ whatsappIcon} alt="whatsapp icon" className=" w-[2vw] portrait:w-[7vw] portrait:sm:w-[3.5vw] object-contain"/>
 <Image src={ instagramIcon} alt="instagram icon" className=" w-[2vw] portrait:w-[7vw] portrait:sm:w-[3.5vw] object-contain"/>

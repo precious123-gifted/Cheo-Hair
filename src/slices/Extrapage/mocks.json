@@ -1,0 +1,19 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"header": {
+				"__TYPE__": "FieldContent",
+				"value": "arrive",
+				"type": "Text"
+			},
+			"writeup": {
+				"__TYPE__": "FieldContent",
+				"value": "seed",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

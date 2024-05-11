@@ -323,7 +323,10 @@ export type HomePageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = BestsellersSlice | WhychooseusSlice;
+type PageDocumentDataSlicesSlice =
+  | ExtrapageSlice
+  | BestsellersSlice
+  | WhychooseusSlice;
 
 /**
  * Content for page documents
@@ -522,6 +525,61 @@ type DeliverysectionSliceVariation = DeliverysectionSliceDefault;
 export type DeliverysectionSlice = prismic.SharedSlice<
   "deliverysection",
   DeliverysectionSliceVariation
+>;
+
+/**
+ * Primary content in *Extrapage → Default → Primary*
+ */
+export interface ExtrapageSliceDefaultPrimary {
+  /**
+   * Header field in *Extrapage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: extrapage.default.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  header: prismic.KeyTextField;
+
+  /**
+   * Writeup field in *Extrapage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: extrapage.default.primary.writeup
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  writeup: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Extrapage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ExtrapageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ExtrapageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Extrapage*
+ */
+type ExtrapageSliceVariation = ExtrapageSliceDefault;
+
+/**
+ * Extrapage Shared Slice
+ *
+ * - **API ID**: `extrapage`
+ * - **Description**: Extrapage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ExtrapageSlice = prismic.SharedSlice<
+  "extrapage",
+  ExtrapageSliceVariation
 >;
 
 /**
@@ -751,6 +809,10 @@ declare module "@prismicio/client" {
       DeliverysectionSliceDefaultPrimary,
       DeliverysectionSliceVariation,
       DeliverysectionSliceDefault,
+      ExtrapageSlice,
+      ExtrapageSliceDefaultPrimary,
+      ExtrapageSliceVariation,
+      ExtrapageSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
