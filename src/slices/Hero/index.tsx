@@ -27,7 +27,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 <div className="header2 text-[#E5DBE1] text-[2vw] portrait:sm:text-[2vw] portrait:text-[4vw] "><PrismicRichText field={slice.primary.header2} /></div>
 </div>
 
-<div className="heroimage absolute w-[20vw]  portrait:w-[45vw]  portrait:sm:w-[25vw] object-contain portrait:top-[48vw] portrait:left-0 portrait:bottom-0 portrait:m-auto portrait:sm:top-[unset] portrait:sm:left-[unset] portrait:sm:bottom-[unset] portrait:sm:m-[unset] right-0   portrait:sm:right-0"><PrismicNextImage field={slice.primary.heroimage} /></div>
+<div className="heroimage absolute w-[20vw]  portrait:w-[45vw]  portrait:sm:w-[25vw] object-contain portrait:top-[46vw] portrait:left-0 portrait:bottom-0 portrait:m-auto portrait:sm:top-[unset] portrait:sm:left-[unset] portrait:sm:bottom-[unset] portrait:sm:m-[unset] right-0   portrait:sm:right-0"><PrismicNextImage field={slice.primary.heroimage} /></div>
 
 
     </div>
