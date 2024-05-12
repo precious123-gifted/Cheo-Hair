@@ -30,15 +30,18 @@ export default function HeaderContent({settings}: any) {
   const menuslidebackground = useRef<HTMLDivElement | null>(null)
   const links = useRef(null)
   const exiticon = useRef(null)
+  const menuicon = useRef(null)
+
 
 
   const showMenu = () =>{
   
  setIcon(!Icon)
  Icon?gsap.to(exiticon.current,{opacity:1,duration:1,position:"fixed"}):gsap.to(exiticon.current,{})
+
  Icon?gsap.to(links.current,{marginLeft:0,duration:1}):gsap.to(links.current,{marginLeft:"100vw"})
  Icon?gsap.to(menuslide.current,{opacity:1,duration:1,position:"fixed",display:"unset",}):gsap.to(menuslide.current,{opacity:0,display:"none",})
- Icon?gsap.to(menuslidebackground.current,{opacity:"98%",duration:0.2,position:"fixed",display:"unset",}):gsap.to(menuslidebackground.current,{opacity:"0%",display:"none",})
+ Icon?gsap.to(menuslidebackground.current,{opacity:"98%",duration:0.7,position:"fixed",display:"unset",}):gsap.to(menuslidebackground.current,{opacity:"0%",display:"none",})
 
 
 
@@ -63,7 +66,7 @@ export default function HeaderContent({settings}: any) {
 <div onClick={showMenu} className="icon  relative">
 
 <div className=" menuicon   landscape:hidden cursor-pointer object-contain  absolute z-50 ">
-{Icon? <Image  src={menuIcon} alt="cart icon" className="w-[6vw]  " />:
+{Icon? <Image ref={menuicon} src={menuIcon} alt="cart icon" className="w-[6vw]  " />:
 <Image ref={exiticon} src={exitIcon} alt="cart icon" className="w-[6vw]  " />}
 
 </div>
