@@ -38,7 +38,7 @@ export default function HeaderContent({settings}: any) {
  Icon?gsap.to(exiticon.current,{opacity:1,duration:1,position:"fixed"}):gsap.to(exiticon.current,{})
  Icon?gsap.to(links.current,{marginLeft:0,duration:1}):gsap.to(links.current,{marginLeft:"100vw"})
  Icon?gsap.to(menuslide.current,{opacity:1,duration:1,position:"fixed",display:"unset",}):gsap.to(menuslide.current,{opacity:0,display:"none",})
- Icon?gsap.to(menuslidebackground.current,{opacity:"98%",duration:1,position:"fixed",display:"unset",}):gsap.to(menuslidebackground.current,{opacity:"0%",display:"none",})
+ Icon?gsap.to(menuslidebackground.current,{opacity:"98%",duration:0.2,position:"fixed",display:"unset",}):gsap.to(menuslidebackground.current,{opacity:"0%",display:"none",})
 
 
 
