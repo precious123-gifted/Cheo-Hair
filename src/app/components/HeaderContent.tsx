@@ -44,9 +44,7 @@ export default function HeaderContent({settings}: any) {
 
   }
   
-  menuslidebackground.current?.addEventListener("scroll",(e)=>{
-    e.preventDefault()
-  })
+
 
 
   return (
@@ -107,7 +105,7 @@ export default function HeaderContent({settings}: any) {
 
 
 
-  <div ref={menuslidebackground} className="menuslidebackground landscape:hidden absolute z-10 bg-[#47443F] opacity-0  h-full w-full"></div>
+  <div ref={menuslidebackground} className="menuslidebackground landscape:hidden absolute z-10 touch-none bg-[#47443F] opacity-0  h-full w-full"></div>
 
   <div ref={menuslide} className="menuslide opacity-0 landscape:hidden w-[50%] h-auto  text-[6vw] portrait:sm:text-[5vw] text-[#3A3329] pt-[9vw] portrait:sm:pt-[6vw] pb-[5vw] absolute z-20 ">
 <div className="content w-full ">
