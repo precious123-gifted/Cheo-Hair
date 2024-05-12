@@ -1,5 +1,5 @@
 import { createClient } from "@/prismicio";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicNextLink } from "@prismicio/next";
 import Bounded from "./Bounded";
 import Image from "next/image";
 import gmailIcon from "../../../public/gmailIcon.png";

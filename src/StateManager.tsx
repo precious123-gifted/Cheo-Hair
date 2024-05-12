@@ -6,22 +6,22 @@ import { createContext, useContext, useState,ReactNode, ReactHTMLElement, useRef
 
 interface GroupProps {
     onClick?: React.MouseEventHandler<HTMLDivElement>; 
-    // Optional click handler
-    scale?: number; // Optional scale
-    position?: number[]; // Optional position
-    // ... other props your group component accepts
+    
+    scale?: number; 
+    position?: number[]; 
+    
   }
 
 interface Refs {
-  hairProductRef: React.RefObject<HTMLDivElement> | null; // Specify element type
- 
+  hairProductRef: React.RefObject<HTMLDivElement> | null; 
+  menuSlideBackgroundRef:  React.RefObject<HTMLDivElement> | null;
 
 }
 
 
 interface Item {
   id: string;
-  product: any; // Replace 'any' with the actual type of your product data
+  product: any; 
 }
 
 
@@ -30,7 +30,7 @@ interface Item {
 
 
 type StateContextType = {
-  items: Item[]; // Array to store items with IDs and products
+  items: Item[];
   setItems: (items: Item[]) => void;
   color: string;
   setColor: (color: string) => void;
@@ -40,7 +40,7 @@ type StateContextType = {
 
 const RefsContext = createContext<Refs>({
     hairProductRef: null,
-    
+    menuSlideBackgroundRef: null
    
    
   });
@@ -55,14 +55,14 @@ const StateContext = createContext<StateContextType | undefined>(undefined);
 export const RefsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
         
     const hairProductRef = useRef(null);
-   
+    const menuSlideBackgroundRef = useRef(null)
   
   
   
     const value = {
      
         hairProductRef,
-     
+        menuSlideBackgroundRef
       
     };
   

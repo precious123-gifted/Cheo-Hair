@@ -37,13 +37,9 @@ export default function RootLayout({
 <RefsProvider>
 
         <Header/>
-        <div className="relative">
-          <div className="menuslidebackground  absolute z-10 bg-[#47443F] opacity-[98%] hidden h-full w-full">
-
-          </div>
+        
           {children} 
-        </div>
-       
+               
         <Footer/>
 </RefsProvider>
         </body>

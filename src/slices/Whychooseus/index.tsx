@@ -1,7 +1,6 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/app/components/Bounded";
-import { DetectTypesProviderConfig } from "prismic-ts-codegen";
 
 /**
  * Props for `Whychooseus`.
