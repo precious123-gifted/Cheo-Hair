@@ -44,7 +44,9 @@ export default function HeaderContent({settings}: any) {
 
   }
   
-  
+  menuslidebackground.current?.addEventListener("scroll",(e)=>{
+    e.preventDefault()
+  })
 
 
   return (
@@ -81,10 +83,10 @@ export default function HeaderContent({settings}: any) {
 
 
 <div className="links portrait:hidden w-auto space-x-[4vw] flex items-center ">
-<ul className=" flex justify-between w-[80%] text-[1.5vw] space-x-[6vw]">
+<ul  className=" flex justify-between w-[80%] text-[1.5vw] space-x-[6vw]">
 
 {settings.data.navigation.map(({label,link}:forString)=>(
-<li key={label}>
+<li  key={label}>
 <PrismicNextLink field={link}>{label}</PrismicNextLink>
 
 </li>
@@ -114,7 +116,7 @@ export default function HeaderContent({settings}: any) {
 <ul className=" space-y-4 portrait:sm:space-y-6">
 
 {settings.data.navigation.map(({label,link}:forString)=>(
-<li key={label} className="bg-[#E2CABE] p-2 rounded-sm">
+<li onClick={()=>{showMenu()}} key={label} className="bg-[#E2CABE] p-2 rounded-sm">
 <PrismicNextLink field={link}>{label}</PrismicNextLink>
 
 </li>
