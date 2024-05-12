@@ -3,7 +3,7 @@
 
 import { PrismicNextImage } from "@prismicio/next";
 import Bounded from "@/app/components/Bounded";
-import exitIcon from "../../../../public/exiticon.png"
+import exitIcon from "../../../../public/exiticon1.png"
 import Image from "next/image";
 
 
