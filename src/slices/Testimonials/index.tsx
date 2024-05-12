@@ -5,9 +5,10 @@ import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { Swiper,SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { useSwiper } from "swiper/react";
+import { A11y,Navigation,Pagination } from "swiper/modules";
 import 'swiper/css'
-import 'swiper/css/navigation'
+
 
 
 
@@ -21,6 +22,9 @@ export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
  * Component for "Testimonials" Slices.
  */
 const Testimonials = ({ slice }: TestimonialsProps): JSX.Element => {
+
+const swiper = useSwiper()
+
   return (
     <Bounded
     data-slice-type={slice.slice_type}
@@ -40,17 +44,15 @@ const Testimonials = ({ slice }: TestimonialsProps): JSX.Element => {
 
 
 
-  <Swiper
-  navigation = {true}
-  pagination={{type:'fraction'}}
-  modules={[Navigation]}
-  className="w-[80vw]"
-  >
+
+
+
       <div className="testifierContainer flex flex-col items-center space-y-[2.5vw] portrait:space-y-[4vw]">
         {slice.items.map((item, index) => (
-          <SwiperSlide key={index} className="space-y-14">
+         
 
             
+          <>
             <div className="testifierTestimony flex items-center justify-center w-full ">  <div className="block   text-[1.6vw]  portrait:text-[5vw] portrait:sm:text-[3vw]">{item.testimony}</div></div>
             
             <div className="testifierName space-y-3 flex flex-col items-center justify-center text-[2vw]  portrait:text-[5vw] portrait:sm:text-[3.5vw]">
@@ -59,12 +61,13 @@ const Testimonials = ({ slice }: TestimonialsProps): JSX.Element => {
              <div className="block"> {item.testifiername}</div>  
             </div>
 
-
-          </SwiperSlide>
+</>
+        
         ))}
       </div>
-    </Swiper>
+      <div className="slideButtons  w-full flex justify-between "><div className="left" onClick={()=>{ swiper.slidePrev() }}>left</div><div className="right" onClick={()=>{ swiper.slideNext() }} >right</div></div>
 
+    
 </div>
 
 
