@@ -37,8 +37,8 @@ export default function HeaderContent({settings}: any) {
  setIcon(!Icon)
  Icon?gsap.to(exiticon.current,{opacity:1,duration:1,position:"fixed"}):gsap.to(exiticon.current,{})
  Icon?gsap.to(links.current,{marginLeft:0,duration:1}):gsap.to(links.current,{marginLeft:"100vw"})
- Icon?gsap.to(menuslide.current,{opacity:1,duration:1,position:"fixed"}):gsap.to(menuslide.current,{opacity:0})
- Icon?gsap.to(menuslidebackground.current,{opacity:"98%",duration:1,position:"fixed"}):gsap.to(menuslidebackground.current,{opacity:"0%"})
+ Icon?gsap.to(menuslide.current,{opacity:1,duration:1,position:"fixed",display:"unset",}):gsap.to(menuslide.current,{opacity:0,display:"none",})
+ Icon?gsap.to(menuslidebackground.current,{opacity:"98%",duration:1,position:"fixed",display:"unset",}):gsap.to(menuslidebackground.current,{opacity:"0%",display:"none",})
 
 
 
@@ -105,9 +105,9 @@ export default function HeaderContent({settings}: any) {
 
 
 
-  <div ref={menuslidebackground} className="menuslidebackground landscape:hidden absolute z-10 touch-none bg-[#47443F] opacity-0  h-full w-full"></div>
+  <div ref={menuslidebackground} className="menuslidebackground landscape:hidden absolute hidden z-10 touch-none bg-[#47443F] opacity-0  h-full w-full"></div>
 
-  <div ref={menuslide} className="menuslide opacity-0 landscape:hidden w-[50%] h-auto  text-[6vw] portrait:sm:text-[5vw] text-[#3A3329] pt-[9vw] portrait:sm:pt-[6vw] pb-[5vw] absolute z-20 ">
+  <div ref={menuslide} className="menuslide opacity-0 landscape:hidden hidden w-[50%] h-auto  text-[6vw] portrait:sm:text-[5vw] text-[#3A3329] pt-[9vw] portrait:sm:pt-[6vw] pb-[5vw] absolute z-20 ">
 <div className="content w-full ">
 
 <div ref={links} className="links w-full  ml-[100vw] flex flex-col justify-between items-start space-y-6 portrait:sm:space-y-8">
