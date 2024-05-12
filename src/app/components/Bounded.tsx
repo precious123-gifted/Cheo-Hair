@@ -21,7 +21,7 @@ children,
 
 }:BoundedProps) {
   return (
-    <Comp className={clsx("w-full h-fit flex bg-[#F5ECF1] flex-col  items-center ",className)  } {...restProps} style={kellySlab.style}>
+    <Comp className={clsx("w-full h-fit flex bg-[#F5ECF1] flex-col  items-center overflow-x-hidden ",className)  } {...restProps} style={kellySlab.style}>
       <div className={clsx("wall   w-[95%] h-full ",className)} {...restProps}  >{children}</div>
     </Comp>
   )
