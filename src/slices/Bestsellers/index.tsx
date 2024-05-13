@@ -98,7 +98,6 @@ const products = await getData()
       
 </div>
 
-<Link href={"/hairs"} className=" text-[2vw] portrait:sm:text-[4vw] portrait:text-[7vw] px-4 py-4 bg-[#2E2820] text-[#DAD3D7] rounded-l  "> View All Hairs </Link>
 
 </div>
 

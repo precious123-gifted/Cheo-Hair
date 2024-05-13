@@ -2,8 +2,11 @@
 "use client"
 
   
+import { useSignal } from "@preact/signals-react";
 import { PrismicNextImage } from "@prismicio/next"
 import Link from "next/link";
+// import { useRouter } from "next/router";
+// import { useEffect, useState } from "react";
 
 
   
@@ -14,12 +17,17 @@ import Link from "next/link";
 
     export default function HairProduct({products}:any) {
 
+      // const router = useRouter();
+      // const isHomePage = router.pathname === '/';
 
+      // const windowPath = useSignal("");
 
-      
+      // useEffect(() => {
+      //   windowPath.value = window.location.pathname;
+      // }, []);
        
       return (
-      
+      <div className="space-y-16 flex flex-col items-center  ">
         <div className="hairProductsContainer w-full grid  portrait:grid-cols-2 landscape:grid-cols-4  gap-5   gap-y-20"> 
         {products.map((product:any) => (
           <div
@@ -39,6 +47,12 @@ import Link from "next/link";
             <div className="hairPrize cursor-pointer font-medium text-green-900 portrait:text-[4vw]">{product.product.hairprize}</div>
           </div>
         ))}
+
+
+      </div>
+      {/* { windowPath === '/' && (
+<Link href={"/hairs"} className=" text-[1.8vw] portrait:sm:text-[4vw] portrait:text-[5vw] px-4 py-4 bg-[#2E2820] text-[#DAD3D7] rounded-[0.210rem]  "> View All Hairs </Link>
+      )} */}
       </div>
       );
     }
