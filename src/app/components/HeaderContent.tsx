@@ -74,8 +74,8 @@ export default function HeaderContent({settings}: any) {
 
 
 <div className="cartNmenuDiv landscape:hidden flex items-center  relative space-x-8 portrait:sm:space-x-14">
-<div className="carticon cursor-pointer object-contain   rounded-sm">
-  <div className="itemQuantity text-[1vw] fixed">{cartLength}</div>
+<div className="carticon cursor-pointer object-contain relative  rounded-sm">
+  <div className="itemQuantity text-[4vw] portrait:sm:text-[3vw] p-[0.1vw]  w-6 portrait:sm:w-[4.4vw] bg-[#31503d] text-[#E2CABE] text-center rounded-full absolute top-[-1rem] ">{cartLength}</div>
   <Link href={"/cart"}><Image  src={cartIcon} alt="cart icon" className="w-[6vw] portrait:sm:w-[5vw]"/></Link>
 </div>
 
