@@ -134,15 +134,16 @@ const {cartLength,setCartLength} = useStateContext()
 
  
   useEffect(() => {
-    const existingCartedProductsData = localStorage.getItem("cartedProducts");
+    localStorage.removeItem('cartedProducts')
+    // const existingCartedProductsData = localStorage.getItem("cartedProducts");
 
-    if (!existingCartedProductsData) {
-      localStorage.setItem("cartedProducts", JSON.stringify([]));
+    // if (!existingCartedProductsData) {
+    //   localStorage.setItem("cartedProducts", JSON.stringify([]));
 
-    } else {
-      setCartedProducts(JSON.parse(existingCartedProductsData));
-      setCartLength(JSON.parse(existingCartedProductsData).length);
-    }
+    // } else {
+    //   setCartedProducts(JSON.parse(existingCartedProductsData));
+    //   setCartLength(JSON.parse(existingCartedProductsData).length);
+    // }
   }, []);
 
   
