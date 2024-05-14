@@ -43,7 +43,7 @@ import Link from "next/link";
             <Link href={`/product/${product._id}`}> 
               <div className="hairTitle cursor-pointer text-[1.5vw] portrait:text-[5vw]">{product.product.hairtitle}</div>
             </Link>
-            <div className="hairDescription cursor-pointer text-[1vw] portrait:text-[4vw] portrait:sm:text-[3vw]">{product.product.hairdescription}</div>
+            <div className="hairDescription cursor-pointer text-[1.19vw] portrait:text-[4vw] portrait:sm:text-[3vw]">{product.product.hairdescription}</div>
             <div className="hairPrize cursor-pointer font-medium text-green-900 portrait:text-[4vw]">{product.product.hairprize}</div>
           </div>
         ))}

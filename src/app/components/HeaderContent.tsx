@@ -1,7 +1,7 @@
 "use client"
 
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next"
-import { MouseEvent, TouchEvent } from 'react';
+import { MouseEvent, TouchEvent, useEffect } from 'react';
 import Image from "next/image"
 import Link from "next/link"
 import { signal, Signal } from "@preact/signals-react";
@@ -11,6 +11,7 @@ import exitIcon from "../../../public/exiticon.png"
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useStateContext } from "@/StateManager";
 
 
 export default function HeaderContent({settings}: any) {
@@ -22,6 +23,7 @@ export default function HeaderContent({settings}: any) {
 
   }
 
+  const {cartLength,setCartLength} = useStateContext() 
 
 
   const [Icon,setIcon] = useState(true)
@@ -31,6 +33,18 @@ export default function HeaderContent({settings}: any) {
   const links = useRef(null)
   const exiticon = useRef(null)
   const menuicon = useRef(null)
+
+
+  useEffect(() => {
+    const existingCartedProductsData = localStorage.getItem("cartedProducts");
+
+    if (!existingCartedProductsData) {
+      localStorage.setItem("cartedProducts", JSON.stringify([]));
+
+    } else {
+      setCartLength(JSON.parse(existingCartedProductsData).length);
+    }
+  }, []);
 
 
 
@@ -46,7 +60,8 @@ export default function HeaderContent({settings}: any) {
 
 
   }
-  
+
+
 
 
 
@@ -59,8 +74,9 @@ export default function HeaderContent({settings}: any) {
 
 
 <div className="cartNmenuDiv landscape:hidden flex items-center  relative space-x-8 portrait:sm:space-x-14">
-<div className="carticon cursor-pointer object-contain     rounded-sm">
-<Image  src={cartIcon} alt="cart icon" className="w-[6vw] portrait:sm:w-[5vw]"/>
+<div className="carticon cursor-pointer object-contain   rounded-sm">
+  <div className="itemQuantity text-[1vw] fixed">{cartLength}</div>
+  <Link href={"/cart"}><Image  src={cartIcon} alt="cart icon" className="w-[6vw] portrait:sm:w-[5vw]"/></Link>
 </div>
 
 <div onClick={showMenu} className="icon  relative">
@@ -96,8 +112,9 @@ export default function HeaderContent({settings}: any) {
 
 </ul>
 
-<div className="carticon cursor-pointer ">
-<Image  src={cartIcon} alt="cart icon" className="object-contain  w-[2.5vw]"/>
+<div className="carticon cursor-pointer relative">
+<div className="itemQuantity text-[1.2vw] p-[0.1vw] w-6 bg-[#31503d] text-[#E2CABE] text-center rounded-full absolute top-[-1.4rem]">{cartLength}</div>
+<Link href={"/cart"}><Image  src={cartIcon} alt="cart icon" className="object-contain  w-[2.5vw]"/></Link>
 </div>
 
 </div>
@@ -108,7 +125,7 @@ export default function HeaderContent({settings}: any) {
 
 
 
-  <div ref={menuslidebackground} className="menuslidebackground landscape:hidden absolute hidden z-10 touch-none bg-[#47443F] opacity-0  h-full w-full"></div>
+  <div ref={menuslidebackground} className="menuslidebackground  absolute  z-10 touch-none bg-[#47443F] hidden  h-full w-full"></div>
 
   <div ref={menuslide} className="menuslide opacity-0 landscape:hidden hidden w-[50%] h-auto  text-[6vw] portrait:sm:text-[5vw] text-[#3A3329] pt-[9vw] portrait:sm:pt-[6vw] pb-[5vw] absolute z-20 ">
 <div className="content w-full ">
@@ -132,6 +149,7 @@ export default function HeaderContent({settings}: any) {
 </div>
 
 </div>
+
     </>
   )
 }

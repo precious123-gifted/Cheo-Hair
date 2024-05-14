@@ -25,15 +25,48 @@ interface Item {
 }
 
 
+interface Product {
+  _id: string;
+  product: {
+    hairimage: PrismicNextImage; // Assuming PrismicNextImage matches your image data structure
+    hairtitle: string;
+    hairdescription: string;
+    hairprize: number; // Assuming price is a number
+  };
+}
+
+interface PrismicNextImage {
+  dimensions: {
+    width: number;
+    height: number;
+  };
+  alt: string;
+  copyright: null | string; // nullable copyright property
+  url: string;
+  id: string;
+  edit: {
+    x: number;
+    y: number;
+    zoom: number;
+    background: string;
+  };
+}
 
 
 
+type CartedProducts = Product[];
 
-type StateContextType = {
+export type StateContextType = {
   items: Item[];
   setItems: (items: Item[]) => void;
   color: string;
   setColor: (color: string) => void;
+  cartedProducts: Product[];
+  setCartedProducts: (products: Product[], prevCartedProducts: Product[]) => void;
+  cartedProductsFromState: CartedProducts;
+  setCartedProductsFromState: (products: CartedProducts) => void;
+  cartLength: number | null ;
+  setCartLength: (newLength: number) => void;
 };
 
 
@@ -71,9 +104,14 @@ export const RefsProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
 export const StateProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [items, setItems] = useState<Item[]>([]);
+  const [cartLength, setCartLength] = useState<number | null>(null);
+  const [cartedProductsFromState, setCartedProductsFromState] = useState<Product[]>([]);
+  const [cartedProducts, setCartedProducts] = useState<Product[]>([]);
+
+
   const [color, setColor] = useState('#DCFFFE');
   
-  return <StateContext.Provider value={{ color, setColor ,items,setItems}}>{children}</StateContext.Provider>;
+  return <StateContext.Provider value={{ color, setColor ,items,setItems,cartedProducts, setCartedProducts,cartedProductsFromState, setCartedProductsFromState,cartLength, setCartLength}}>{children}</StateContext.Provider>;
 };
 
 

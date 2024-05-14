@@ -5,6 +5,7 @@ import { createClient } from "@/prismicio";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { RefsProvider } from "@/StateManager";
+import { StateProvider } from "@/StateManager";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,15 +34,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        
+  <StateProvider>      
 <RefsProvider>
 
         <Header/>
         
-          {children} 
+        {children}
+           
+        
+         
                
         <Footer/>
 </RefsProvider>
+</StateProvider>
         </body>
     </html>
   );
