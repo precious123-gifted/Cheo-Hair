@@ -101,7 +101,7 @@ const {cartLength,setCartLength} = useStateContext()
     
            if (existingProductIndex !== -1) {
              // Product already in cartedProducts, handle quantity adjustments (optional)
-             alert('Product is already in cartedProducts, handle quantity from the cartedProducts page');
+             alert('This Product is Already in Your cart');
              // Update cartedProducts quantity using setCartedProducts
              console.log(`this is the cart length ${cartLength}`)
     

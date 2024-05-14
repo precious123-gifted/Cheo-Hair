@@ -97,7 +97,7 @@ useEffect(() => {
 
   <div className="total w-full text-[1.3vw] portrait:text-[4.2vw] portrait:sm:text-[3.4vw] flex justify-between"><div className="text">Total</div><div className="amount">$2200</div></div>
 
-  <div className="checkoutBTN w-full text-center text-[1.6vw] portrait:text-[5.8vw] portrait:sm:text-[4.6vw] py-2 px-4 cursor-pointer text-[#E2CABE] bg-[#31503d] rounded-md">Checkout</div>
+  <div className="checkoutBTN w-full text-center text-[1.6vw] portrait:text-[5.8vw] portrait:sm:text-[4.6vw] py-2 px-4 cursor-pointer text-[#ebd3c7] bg-[#31503d] rounded-md">Checkout</div>
 
 
 
