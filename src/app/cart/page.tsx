@@ -3,7 +3,7 @@
 
 import { useStateContext } from "@/StateManager";
 import { PrismicNextImage} from "@prismicio/next";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Bounded from "../components/Bounded";
 
 export default function CartContainer() {
@@ -42,6 +42,35 @@ export default function CartContainer() {
 const {cartLength,setCartLength} = useStateContext() 
 
 
+
+const totalAmountRef = useRef(0); // Create a Ref to store the total amount
+
+// const calculateTotalAmount = () => {
+//   totalAmountRef.current = cartData.reduce((sum, product) => sum + (product.totalPrice), 0);
+// };
+
+const calculateTotalAmount = () => {
+  // Retrieve cart data from local storage
+  let cartedProductsFromLS = localStorage.getItem("cartedProducts");
+
+  // Check if data exists in local storage
+  if (cartedProductsFromLS) {
+    const parsedCartData = JSON.parse(cartedProductsFromLS);
+
+    // Calculate total amount using parsed data
+    totalAmountRef.current = parsedCartData.reduce((sum:any, product:any) => sum + (product.product.hairprize * product.quantity), 0);
+  } else {
+    // Set total amount to 0 if no data in local storage
+    totalAmountRef.current = 0;
+  }
+};
+
+useEffect(() => {
+  calculateTotalAmount(); // Calculate total amount on initial render and cart data changes
+}, []);
+
+
+
 const updateLocalStorage = (updatedCartData: any) => {
   // Store the updated cart data in local storage
   localStorage.setItem('cartedProducts', JSON.stringify(updatedCartData));
@@ -65,6 +94,7 @@ const handleQuantityChange = (productId:any, change:any) => {
     setCartData(updatedCart);
     updateLocalStorage(updatedCart);
     setCartLength(updatedCart.length)
+  calculateTotalAmount(); // Calculate total amount on initial render and cart data changes
 
 
     // Update local storage here (see explanation below)
@@ -79,6 +109,8 @@ const handleQuantityChange = (productId:any, change:any) => {
     
     // Update local storage here (see explanation below)
     updateLocalStorage(updatedCart);
+  calculateTotalAmount(); // Calculate total amount on initial render and cart data changes
+
 
   }
 };
@@ -148,7 +180,7 @@ useEffect(() => {
               </div>
                </td>
           <td className="mb-6 text-center portrait:text-[5vw] portrait:sm:text-[4vw]">{product.product.hairprize}</td>
-          <td className="mb-6 text-center portrait:text-[5vw] portrait:sm:text-[4vw]"><div className="increase text-[1.6vw] portrait:text-[7vw] portrait:sm:text-[5vw] cursor-pointer" onClick={() => handleQuantityChange(product._id, 1)}>+</div><div> {product.quantity} </div><div className="decrease text-[1.6vw] portrait:text-[7vw] portrait:sm:text-[5vw]  cursor-pointer" onClick={() => handleQuantityChange(product._id, -1)}>-</div></td>
+          <td className="mb-6 text-center portrait:text-[5vw] portrait:sm:text-[4vw]"><div className="increase text-[1.6vw] portrait:text-[7vw] portrait:sm:text-[5vw] text-[#31503d] cursor-pointer" onClick={() => handleQuantityChange(product._id, 1)}>+</div><div> {product.quantity} </div><div className="decrease text-[1.6vw] portrait:text-[7vw] portrait:sm:text-[5vw] text-[#703b5a]  cursor-pointer" onClick={() => handleQuantityChange(product._id, -1)}>-</div></td>
           <td className="mb-6 text-center portrait:text-[5vw] portrait:sm:text-[4vw]">
             {product.product.hairprize * product.quantity}
           </td>
@@ -164,11 +196,11 @@ useEffect(() => {
   <div className="heading w-full text-center  text-[1.6vw] portrait:text-[6vw] portrait:sm:text-[4.8vw]">Order Summary</div>
 
   <div className="subNship w-full text-[1.3vw] portrait:text-[4.2vw] portrait:sm:text-[3.4vw]">
-<div className="sub flex  justify-between"><div className="text">Subtotal</div><div className="amount">$2200</div></div>
+<div className="sub flex  justify-between"><div className="text">Subtotal</div><div className="amount">${totalAmountRef.current}</div></div>
 <div className="ship flex justify-between"><div className="text">Shipping</div><div className="free">free</div></div>
   </div>
 
-  <div className="total w-full text-[1.3vw] portrait:text-[4.2vw] portrait:sm:text-[3.4vw] flex justify-between"><div className="text">Total</div><div className="amount">$2200</div></div>
+  <div className="total w-full text-[1.3vw] portrait:text-[4.2vw] portrait:sm:text-[3.4vw] flex justify-between"><div className="text">Total</div><div className="amount">${totalAmountRef.current}</div></div>
 
   <div className="checkoutBTN w-full text-center text-[1.6vw] portrait:text-[5.8vw] portrait:sm:text-[4.6vw] py-2 px-4 cursor-pointer text-[#e7d1c6] bg-[#31503d] rounded-md">Checkout</div>
 
