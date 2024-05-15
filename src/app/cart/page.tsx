@@ -11,7 +11,7 @@ export default function CartContainer() {
   interface Product {
     _id: string;
     quantity: number ;// Assuming price is a number
-
+    totalPrice: number ;
     product: {
       hairimage: PrismicNextImage; // Assuming PrismicNextImage matches your image data structure
       hairtitle: string;
@@ -42,13 +42,86 @@ export default function CartContainer() {
 const {cartLength,setCartLength} = useStateContext() 
 
 
-useEffect(() => {
-  const storedCartData = localStorage.getItem("cartedProducts");
-  if (storedCartData) {
-    setCartData(JSON.parse(storedCartData));
-    setCartLength(JSON.parse(storedCartData).length);
+const updateLocalStorage = (updatedCartData: any) => {
+  // Store the updated cart data in local storage
+  localStorage.setItem('cartedProducts', JSON.stringify(updatedCartData));
+};
+// Update local storage logic (replace with your actual storage implementation)
+
+
+const handleQuantityChange = (productId:any, change:any) => {
+  // Find the product in the cart
+  const productIndex = cartData.findIndex((item) => item._id === productId);
+  if (productIndex === -1) return; // Product not found
+
+  // Update quantity and total price
+  const updatedProduct = { ...cartData[productIndex] };
+  updatedProduct.quantity += change; // Increase or decrease quantity
+
+  // Handle quantity reaching 1
+  if (updatedProduct.quantity === 0) {
+    // Remove product from cart
+    const updatedCart = cartData.filter((item) => item._id !== productId);
+    setCartData(updatedCart);
+    updateLocalStorage(updatedCart);
+    setCartLength(updatedCart.length)
+
+
+    // Update local storage here (see explanation below)
+  } else {
+    // Update product quantity and total price
+    updatedProduct.totalPrice = updatedProduct.product.hairprize * updatedProduct.quantity;
+
+    // Update cart data in state
+    const updatedCart = [...cartData];
+    updatedCart[productIndex] = updatedProduct;
+    setCartData(updatedCart);
+    
+    // Update local storage here (see explanation below)
+    updateLocalStorage(updatedCart);
+
   }
+};
+
+
+
+// useEffect(() => {
+//   // Update local storage whenever cartData changes
+
+//   updateLocalStorage(cartData);
+
+//   const existingCartedProductsData = localStorage.getItem("cartedProducts");
+
+//   if(existingCartedProductsData)setCartLength(JSON.parse(existingCartedProductsData).length);
+// }, [cartData,cartLength]); // Dependency on cartData
+
+
+
+
+useEffect(() => {
+  // Retrieve cart data from local storage
+  let cartedProductsFromLS = localStorage.getItem("cartedProducts");
+
+  if (cartedProductsFromLS) {
+    // Parse and set cart length (assuming it's calculated from cart items)
+    setCartLength(JSON.parse(cartedProductsFromLS).length);
+
+    // Update state only if local storage data is different from current state
+    if (JSON.stringify(cartedProductsFromLS) !== JSON.stringify(cartData)) {
+      setCartData(JSON.parse(cartedProductsFromLS)); 
+    }
+  }
+
+  // Update local storage whenever cartData changes
+ 
 }, [cartLength]);
+
+
+
+
+
+
+
 
   return (
     <Bounded>
@@ -75,7 +148,7 @@ useEffect(() => {
               </div>
                </td>
           <td className="mb-6 text-center portrait:text-[5vw] portrait:sm:text-[4vw]">{product.product.hairprize}</td>
-          <td className="mb-6 text-center portrait:text-[5vw] portrait:sm:text-[4vw]"><div className="increase text-[1.6vw] portrait:text-[7vw] portrait:sm:text-[5vw] cursor-pointer">+</div><div> {product.quantity} </div><div className="decrease text-[1.6vw] portrait:text-[7vw] portrait:sm:text-[5vw]  cursor-pointer">-</div></td>
+          <td className="mb-6 text-center portrait:text-[5vw] portrait:sm:text-[4vw]"><div className="increase text-[1.6vw] portrait:text-[7vw] portrait:sm:text-[5vw] cursor-pointer" onClick={() => handleQuantityChange(product._id, 1)}>+</div><div> {product.quantity} </div><div className="decrease text-[1.6vw] portrait:text-[7vw] portrait:sm:text-[5vw]  cursor-pointer" onClick={() => handleQuantityChange(product._id, -1)}>-</div></td>
           <td className="mb-6 text-center portrait:text-[5vw] portrait:sm:text-[4vw]">
             {product.product.hairprize * product.quantity}
           </td>
