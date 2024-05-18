@@ -31,7 +31,7 @@ const Testimonials = ({ slice }: TestimonialsProps): JSX.Element => {
     data-slice-type={slice.slice_type}
     data-slice-variation={slice.variation}
 
-    className="pt-[2vw] portrait:pt-[6vw] portrait:sm:pt-[3vw] rounded-t bg-[#E2CABE] text-[#47412A] space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
+    className="pt-[2vw] portrait:pt-[6vw] portrait:sm:pt-[3vw] rounded-t bg-[#E2CABE] text-[#202c2c] space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
   >
    
 

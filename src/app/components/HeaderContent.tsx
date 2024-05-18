@@ -76,7 +76,7 @@ export default function HeaderContent({settings}: any) {
 <div className="cartNmenuDiv landscape:hidden flex items-center  relative space-x-8 portrait:sm:space-x-14">
 <div className="carticon cursor-pointer object-contain relative  rounded-sm">
 { cartLength! > 0 && (<Link href={"/cart"}><div className="itemQuantity text-[4vw] portrait:sm:text-[3vw] p-[0.1vw]  w-6 portrait:sm:w-[4.4vw] bg-[#31503d] text-[#E2CABE] text-center rounded-full absolute top-[-1rem] ">{cartLength}</div></Link>)}
-  <Link href={"/cart"}><Image  src={cartIcon} alt="cart icon" className="w-[6vw] portrait:sm:w-[5vw]"/></Link>
+  <Link href={"/cart"}><Image  src={cartIcon} alt="cart icon" className="w-[8vw] portrait:sm:w-[7vw]"/></Link>
 </div>
 
 <div onClick={showMenu} className="icon  relative">
@@ -127,7 +127,7 @@ export default function HeaderContent({settings}: any) {
 
   <div ref={menuslidebackground} className="menuslidebackground  absolute  z-10 touch-none bg-[#47443F] hidden  h-full w-full"></div>
 
-  <div ref={menuslide} className="menuslide opacity-0 landscape:hidden hidden w-[50%] h-auto  text-[6vw] portrait:sm:text-[5vw] text-[#3A3329] pt-[9vw] portrait:sm:pt-[6vw] pb-[5vw] absolute z-20 ">
+  <div ref={menuslide} className="menuslide opacity-0 landscape:hidden hidden w-[50%] h-auto  text-[6vw] portrait:sm:text-[5vw] text-[#141C1C] pt-[9vw] portrait:sm:pt-[6vw] pb-[5vw] absolute z-20 ">
 <div className="content w-full ">
 
 <div ref={links} className="links w-full  ml-[100vw] flex flex-col justify-between items-start space-y-6 portrait:sm:space-y-8">

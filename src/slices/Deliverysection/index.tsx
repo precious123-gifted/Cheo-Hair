@@ -25,7 +25,7 @@ const Deliverysection = ({ slice }: DeliverysectionProps): JSX.Element => {
     data-slice-type={slice.slice_type}
     data-slice-variation={slice.variation}
 
-    className="     text-[#5B431E] space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
+    className="      text-[#202c2c] space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
   >
    
 

@@ -84,7 +84,7 @@ const products = await getData()
 
     >
   
-<div className="content relative text-[#2E2820] w-full flex flex-col items-center pt-6  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw] ">
+<div className="content relative  text-[#141C1C] w-full flex flex-col items-center pt-6  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw] ">
 <div className="heading  text-[3vw] portrait:sm:text-[4vw] portrait:text-[7vw] portrait:mb-10">{slice.primary.header}</div>
 
 

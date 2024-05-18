@@ -18,7 +18,7 @@ export default async function Header() {
 
 
   return (
-    <section className="flex justify-center bg-[#F5ECF1] "  style={kellySlab.style}>
+    <section className="flex justify-center bg-[#F5ECF1] text-[#202c2c]"  style={kellySlab.style}>
 <HeaderContent settings={settings}/>
  
     </section>

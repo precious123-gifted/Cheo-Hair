@@ -157,7 +157,7 @@ useEffect(() => {
 
   return (
     <Bounded>
-    <div className="w-full text-[#2E2820]  flex portrait:flex-col ">
+    <div className="w-full text-[#202c2c]   flex portrait:flex-col ">
       
     <div className="cart-container  w-[80%] portrait:w-[97%]">
     <table className=" table-auto border-separate border-spacing-8 portrait:border-spacing-x-6">

@@ -18,7 +18,7 @@ export default async function Footer() {
 
   return (
     <Bounded>
-    <div className="content bg-[#1C1914] text-[#d3cbcf] w-full px-5 py-8 pt-8 flex flex-row justify-between  portrait:sm:flex-row  portrait:sm:justify-between portrait:flex-col portrait:space-y-6 portrait:sm:space-y-0  ">
+    <div className="content  bg-[#141C1C] text-[#d3cbcf] w-full px-5 py-8 pt-8 flex flex-row justify-between  portrait:sm:flex-row  portrait:sm:justify-between portrait:flex-col portrait:space-y-6 portrait:sm:space-y-0  ">
 
 
 <div className="addressNpolicySection space-y-3">
@@ -67,7 +67,7 @@ export default async function Footer() {
   
     </div>
   
-  <div className="copyRightDiv flex portrait:flex-col justify-between px-5 py-2 text-[#14120F] text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[3.7vw]  "> <div className="preciousOG">site by PreciousOG</div>   <div className="prodigital">© 2024 Cheo Hair - All Rights Reserved</div> </div>
+  <div className="copyRightDiv flex portrait:flex-col justify-between px-5 py-2 text-[#141C1C]  text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[3.7vw]  "> <div className="preciousOG">site by PreciousOG</div>   <div className="prodigital">© 2024 Cheo Hair - All Rights Reserved</div> </div>
   
   
   
