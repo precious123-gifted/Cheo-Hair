@@ -68,7 +68,7 @@ export default function HeaderContent({settings}: any) {
   return (
     <>
        <div className="content w-[95%]  flex flex-row justify-between items-center relative pt-2">
-<div className="logo cursor-pointer object-contain  w-[17vw] portrait:w-[32vw]  pb-1">
+<div className="logo cursor-pointer object-contain  w-[17vw] portrait:w-[32vw]  pb-1 ">
   <Link href={"/"}> <PrismicNextImage  field={settings.data.logo} /></Link>
       </div>
 
