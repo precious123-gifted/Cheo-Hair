@@ -28,7 +28,7 @@ const Whychooseus = ({ slice }: WhychooseusProps): JSX.Element => {
 <div className="content w-full py-1 px-1  flex space-x-[8vw] portrait:space-x-0 portrait:flex-col  rounded-xl relative">
 <div className="hairimage portrait:hidden w-[22vw]  portrait:w-full    object-contain portrait:top-[46vw] portrait:left-0 portrait:bottom-0 portrait:m-auto portrait:sm:top-[unset] portrait:sm:left-[unset] portrait:sm:bottom-[unset] portrait:sm:m-[unset] right-0   portrait:sm:right-0"><PrismicNextImage className="landscape:rounded-l-xl portrait:rounded-t-xl portrait:h-[80vw] object-cover object-top" field={slice.primary.image} /></div>
 
-<div className="writeupsection   h-fit  mt-5 flex flex-col items-start w-[50%] portrait:w-full portrait:sm:w-full   space-y-7 portrait:space-y-4">
+<div className="writeupsection   h-fit  mt-5 flex flex-col items-start w-[50%] portrait:w-full portrait:sm:w-full   space-y-7 portrait:space-y-8">
 <div className="writeup  text-[#EDE0E7] text-[1.8vw] portrait:sm:text-[3vw] portrait:text-[6vw] leading-tight  tracking-free">{slice.primary.writeup}</div>
 <PrismicNextLink className="text-[#141C1C] bg-[#EDE0E7] py-4  px-8 rounded text-[1.8vw] portrait:sm:text-[3vw] portrait:text-[6vw]" field={slice.primary.hairsbutton}>Check Our Hairs</PrismicNextLink>
 
