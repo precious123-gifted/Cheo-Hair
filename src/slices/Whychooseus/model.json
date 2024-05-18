@@ -25,6 +25,22 @@
             "label": "Writeup",
             "placeholder": ""
           }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "hairsbutton": {
+          "type": "Link",
+          "config": {
+            "label": "hairsbutton",
+            "placeholder": "",
+            "select": null
+          }
         }
       },
       "items": {}

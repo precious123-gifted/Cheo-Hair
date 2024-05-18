@@ -747,6 +747,26 @@ export interface WhychooseusSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   writeup: prismic.KeyTextField;
+
+  /**
+   * image field in *Whychooseus → Aboutus → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: whychooseus.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * hairsbutton field in *Whychooseus → Aboutus → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: whychooseus.default.primary.hairsbutton
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  hairsbutton: prismic.LinkField;
 }
 
 /**
