@@ -16,7 +16,7 @@ const Extrapage = ({ slice }: ExtrapageProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
 
-      className="pt-[2vw] portrait:pt-[6vw] portrait:sm:pt-[3vw] pb-5 rounded bg-[#F5ECF1] text-[#202c2c] space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
+      className="pt-[2vw] portrait:pt-[6vw] portrait:sm:pt-[3vw] pb-5 rounded bg-[#F5ECF1] text-[#2a3a3a]  space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
     >
      
 
