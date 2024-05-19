@@ -21,7 +21,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-     className="pt-[1.8vw] portrait:pt-[2vw] portrait:sm:pt-[3vw] pb-5 text-[#d3cbcf]    space-y-10  portrait:space-y-80 portrait:sm:space-y-40 " >
+     className="pt-[1.8vw] portrait:pt-[2vw] portrait:sm:pt-[3vw] pb-5 text-[#c9bfc4] space-y-10  portrait:space-y-80 portrait:sm:space-y-40 " >
     <div className="content w-full py-1 px-1  flex space-x-[8vw] portrait:space-x-0 portrait:flex-col bg-[#141C1C] rounded-xl relative">
 <div className="heroimage  w-[22vw]  portrait:w-full    object-contain portrait:top-[46vw] portrait:left-0 portrait:bottom-0 portrait:m-auto portrait:sm:top-[unset] portrait:sm:left-[unset] portrait:sm:bottom-[unset] portrait:sm:m-[unset] right-0   portrait:sm:right-0"><PrismicNextImage className="landscape:rounded-l-xl portrait:rounded-t-xl portrait:h-[80vw] object-cover object-top "   field={slice.primary.heroimage} /></div>
 
