@@ -164,7 +164,7 @@ const {cartLength,setCartLength} = useStateContext()
     
   return (
     <Bounded>
-      <div className=" hairexpandedcontainer  text-[#202c2c] w-auto   flex flex-col  items-center text-center space-y-5  portrait:px-[8vw] py-[2vw] portrait:py-[8vw]">
+      <div className=" hairexpandedcontainer  text-[#384d4d] w-auto   flex flex-col  items-center text-center space-y-5  portrait:px-[8vw] py-[2vw] portrait:py-[8vw]">
 <div className="exiticon    w-full flex justify-end ">
 <Image onClick={handleExitClick} src={exitIcon} alt="exit-icon" className="landscape:w-[2vw] portrait:w-[6vw] portrait:sm:w-[4vw]  object-cover cursor-pointer"/>
 </div>
