@@ -20,7 +20,7 @@ const Whychooseus = ({ slice }: WhychooseusProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
 
-      className="pt-[2vw] portrait:pt-[6vw] portrait:sm:pt-[3vw] pb-5 rounded  text-[#d3cbcf] space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
+      className="pt-[2vw] portrait:pt-[6vw] portrait:sm:pt-[3vw] pb-5 rounded  text-[#c5babf] space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
     >
      
 
@@ -33,7 +33,7 @@ const Whychooseus = ({ slice }: WhychooseusProps): JSX.Element => {
 
 <div className="writeupsection   h-fit  mt-5 flex flex-col items-start w-[50%] portrait:w-full portrait:sm:w-full   space-y-20 portrait:space-y-14">
 <div className="writeup   text-[1.8vw] portrait:sm:text-[3vw] portrait:text-[6vw] leading-tight  tracking-free">{slice.primary.writeup}</div>
-<PrismicNextLink className="text-[#2a3a3a]  bg-[#d3cbcf] hover:text-[#202e2e] hover:bg-[#d4baac] duration-[1s] ease-in-out py-4  px-8 w-full rounded text-center text-[2vw] portrait:sm:text-[3vw] portrait:text-[6vw]" field={slice.primary.hairsbutton}>Check Our Hairs</PrismicNextLink>
+<PrismicNextLink className="text-[#3a5050]  bg-[#d3cbcf] hover:text-[#2d3d3d] hover:bg-[#d4baac] duration-[1s] ease-in-out py-4  px-8 w-full rounded text-center text-[2vw] portrait:sm:text-[3vw] portrait:text-[6vw]" field={slice.primary.hairsbutton}>Check Our Hairs</PrismicNextLink>
 
 
 </div>

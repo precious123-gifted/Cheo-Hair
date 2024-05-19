@@ -104,7 +104,7 @@ export default function HeaderContent({settings}: any) {
 
 {settings.data.navigation.map(({label,link}:forString)=>(
 <li  key={label}>
-<PrismicNextLink field={link}>{label}</PrismicNextLink>
+<PrismicNextLink className="hover:border-y-2 border-[#3b5252] duration-[0.1s] ease-in-out" field={link}>{label}</PrismicNextLink>
 
 </li>
 
@@ -127,7 +127,7 @@ export default function HeaderContent({settings}: any) {
 
   <div ref={menuslidebackground} className="menuslidebackground  absolute  z-10 touch-none bg-[#47443F] hidden  h-full w-full"></div>
 
-  <div ref={menuslide} className="menuslide opacity-0 landscape:hidden hidden w-[50%] h-auto  text-[6vw] portrait:sm:text-[5vw] text-[#141C1C] pt-[9vw] portrait:sm:pt-[6vw] pb-[5vw] absolute z-20 ">
+  <div ref={menuslide} className="menuslide opacity-0 landscape:hidden hidden w-[50%] h-auto  text-[6vw] portrait:sm:text-[5vw] text-[#3a5050]  pt-[9vw] portrait:sm:pt-[6vw] pb-[5vw] absolute z-20 ">
 <div className="content w-full ">
 
 <div ref={links} className="links w-full  ml-[100vw] flex flex-col justify-between items-start space-y-6 portrait:sm:space-y-8">
