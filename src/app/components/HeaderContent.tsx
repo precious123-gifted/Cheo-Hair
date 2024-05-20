@@ -37,6 +37,10 @@ export default function HeaderContent({settings}: any) {
   const menuicon = useRef(null)
   const logo = useRef(null)
   const carticon = useRef(null)
+  const desktopcarticon = useRef(null)
+  const itemquantitydiv = useRef(null)
+
+
 
 
 const loadingAnimation = useEffect(()=>{
@@ -44,6 +48,8 @@ const loadingAnimation = useEffect(()=>{
   displayElementWhenPageLoads(logo,0.5,150)
   displayElementWhenPageLoads(desktoplinks,0.5,300)
   displayElementWhenPageLoads(carticon,0.5,500)
+  displayElementWhenPageLoads(desktopcarticon,0.5,400)
+   displayElementWhenPageLoads(itemquantitydiv,0.5,420)
   displayElementWhenPageLoads(menuicon,0.5,650)
 })
 
@@ -131,9 +137,9 @@ const loadingAnimation = useEffect(()=>{
 
 </ul>
 
-<div className="carticon cursor-pointer relative">
-<div className="itemQuantity text-[1vw] p-[0.1vw] w-6 bg-[#31503d] text-[#E2CABE] text-center rounded-full absolute top-[-1.4rem]">{cartLength}</div>
-<Link href={"/cart"}><Image  src={cartIcon} alt="cart icon" className="object-contain  w-[2.5vw]"/></Link>
+<div   className="carticon  cursor-pointer relative">
+<div ref={itemquantitydiv} className="itemQuantity opacity-0 text-[1vw] p-[0.1vw] w-6 bg-[#31503d] text-[#E2CABE] text-center rounded-full absolute top-[-1.4rem]">{cartLength}</div>
+<Link href={"/cart"} ><Image  src={cartIcon} alt="cart icon"  ref={desktopcarticon} className="object-contain opacity-0 w-[2.5vw]"/></Link>
 </div>
 
 </div>
