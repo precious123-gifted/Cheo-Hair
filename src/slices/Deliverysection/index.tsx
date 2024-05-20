@@ -30,29 +30,43 @@ const Deliverysection = ({ slice }: DeliverysectionProps): JSX.Element => {
   const demacationLines = useRef<HTMLImageElement | null>(null);
   const demacationLines2 = useRef<HTMLImageElement | null>(null);
   const demacationLines3 = useRef<HTMLImageElement | null>(null);
+  const deliverytruck = useRef<HTMLImageElement | null>(null);
 
 
-const animateRoadMovement = (ref:any) =>{
 
-  if(ref.current)
-  gsap.to(ref.current, { // Target all child elements (Images)
-    xPercent: -100, // Move to -100% for continuous scrolling effect
-    repeat: -1, // Repeat infinitely
-    duration: 5, // Adjust duration as needed
-    ease: "linear",
-    scrub: true, // Enable scrubbing for smooth continuous movement
+  const animateRoadMovement = (ref:any) => {
+    gsap.fromTo(ref.current, {
+      xPercent: 0 // Start from the right edge
+    }, {
+      xPercent: -100, // Move to -100% for continuous scrolling effect
+      repeat: -1,
+      duration: 5,
+      ease: "linear",
+      scrub: true,
+    });
+  };
+
+const animateCarBounce = () => {
+  const tl = gsap.timeline({ repeat: -1 }); // Create a timeline for repeated bouncing
+
+  tl.to(deliverytruck.current, {
+    y: '-50%', // Move down 10px
+    duration: 0.5, // Duration for downward movement
+    ease: "Power1.easeIn", // Ease in for a smooth start
+  })
+  .to(deliverytruck.current, {
+    y: '-50.5%', // Move up 10px
+    duration: 0.5, // Duration for upward movement
+    ease: "Power1.easeOut", // Ease out for a smooth stop
   });
-  
-
-
-
-}
+};
 
 useEffect(()=>{
   
   animateRoadMovement(demacationLines)
   animateRoadMovement(demacationLines2)
   animateRoadMovement(demacationLines3)
+  animateCarBounce()
 })
 
 
@@ -72,7 +86,7 @@ useEffect(()=>{
 
 <div className="vectors relative flex flex-col justify-items-center">
  
-<Image src={deliveryVector} alt="delivery truck"  className="absolute z-10 w-[8vw] portrait:w-[26vw] top-[5%] transform translate-y-[-50%] portrait:translate-y-[-55%]"/>
+<Image ref={deliverytruck} src={deliveryVector} alt="delivery truck"  className="absolute z-10 w-[8vw] portrait:w-[26vw] top-[5%] transform translate-y-[-50%] portrait:translate-y-[-55%]"/>
 
 <Image src={roadVector} alt="road vector" className="w-[30vw] portrait:w-[90vw]"/>
 <div  className="roaddemacationLines absolute top-1/2 transform -translate-y-1/2 flex space-x-5 overflow-hidden">
