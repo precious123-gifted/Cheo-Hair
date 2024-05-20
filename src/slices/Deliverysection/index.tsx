@@ -27,6 +27,16 @@ export type DeliverysectionProps =
  */
 const Deliverysection = ({ slice }: DeliverysectionProps): JSX.Element => {
 
+  function isPortrait() {
+    const portraitQuery = window.matchMedia('(orientation: portrait)');
+    return portraitQuery.matches;
+  }
+  function isLandscape() {
+    const portraitQuery = window.matchMedia('(orientation: landscape)');
+    return portraitQuery.matches;
+  }
+
+
   const demacationLines = useRef<HTMLImageElement | null>(null);
   const demacationLines2 = useRef<HTMLImageElement | null>(null);
   const demacationLines3 = useRef<HTMLImageElement | null>(null);
@@ -59,7 +69,26 @@ const animateCarBounce = () => {
     duration: 0.5, // Duration for upward movement
     ease: "Power1.easeOut", // Ease out for a smooth stop
   });
+
+
+if(isPortrait()){
+
+  tl.to(deliverytruck.current, {
+    y: '-55%', // Move down 10px
+    duration: 0.5, // Duration for downward movement
+    ease: "Power1.easeIn", // Ease in for a smooth start
+  })
+  .to(deliverytruck.current, {
+    y: '-55.1%', // Move up 10px
+    duration: 0.5, // Duration for upward movement
+    ease: "Power1.easeOut", // Ease out for a smooth stop
+  });
+
+}
+
 };
+
+
 
 useEffect(()=>{
   
