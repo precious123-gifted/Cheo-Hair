@@ -90,7 +90,7 @@ const opacityAnimation = (ref: RefObject<HTMLDivElement | HTMLButtonElement | HT
 useEffect(()=>{
   opacityAnimation(header,0.4)
   opacityAnimation(writeup,0.8)
-  opacityAnimation(button,0.6 )
+  opacityAnimation(button,0.4 )
 
 
 })
