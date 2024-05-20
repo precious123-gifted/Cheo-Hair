@@ -31,56 +31,7 @@ const button = useRef(null)
 
 
 
-const marginAnimation = (ref: RefObject<HTMLDivElement | HTMLButtonElement | HTMLImageElement | HTMLSpanElement>) =>{
-  let marginAnimation =   ScrollTrigger.create({
-    trigger: ref.current,
-    start: "top bottom",
-    end: "bottom top",
-    markers:true,
 
-
-      onEnter: () => {
-      gsap.to(ref.current,2, {
-        marginLeft:'0%',
-        scrub:1,
-        
-      });
-  
-    },
-    onLeave: () => {
-      gsap.to(ref.current,2, {
-        marginLeft:'60%',
-        scrub:1,
-        
-      });
-  
-  
-     
-      
-    },
-    onLeaveBack: () => {
-      gsap.to(ref.current,2, {
-        marginLeft:'60%',
-        scrub:1,
-        
-      });
-  
-    
-  
-    },
-    
-    onEnterBack: () => {
-      gsap.to(ref.current, 2,{
-        marginLeft:'0%',
-        scrub:1,
-       
-      });
-  
-     
-  
-    },
-  })
-}
 const opacityAnimation = (ref: RefObject<HTMLDivElement | HTMLButtonElement | HTMLImageElement | HTMLSpanElement>,time:number) =>{
   let opacityAnimation =   ScrollTrigger.create({
     trigger: ref.current,
@@ -137,8 +88,8 @@ const opacityAnimation = (ref: RefObject<HTMLDivElement | HTMLButtonElement | HT
 
 
 useEffect(()=>{
-  marginAnimation(header)
-  opacityAnimation(writeup,2.4)
+  opacityAnimation(header,0.4)
+  opacityAnimation(writeup,0.8)
   opacityAnimation(button,0.6 )
 
 
@@ -158,7 +109,7 @@ useEffect(()=>{
 
 <div className="content w-full py-6 px-5 flex flex-col rounded bg-[#272118] items-center space-y-[1vw] portrait:space-y-[4vw]">
 
-<div ref={header} className="header ml-[60%] text-[2vw] portrait:sm:text-[4vw] portrait:text-[7vw] text-center">{slice.primary.header}</div>
+<div ref={header} className="header opacity-0 text-[2vw] portrait:sm:text-[4vw] portrait:text-[7vw] text-center">{slice.primary.header}</div>
 
 <div className="content w-full py-1 px-1  flex space-x-[8vw] portrait:space-x-0 portrait:flex-col  rounded-xl relative">
 <div className="hairimage portrait:hidden w-[22vw]  portrait:w-full    object-contain portrait:top-[46vw] portrait:left-0 portrait:bottom-0 portrait:m-auto portrait:sm:top-[unset] portrait:sm:left-[unset] portrait:sm:bottom-[unset] portrait:sm:m-[unset] right-0   portrait:sm:right-0"><PrismicNextImage className="landscape:rounded-l-xl portrait:rounded-t-xl portrait:h-[80vw] object-cover object-top" field={slice.primary.image} /></div>
