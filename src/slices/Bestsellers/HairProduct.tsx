@@ -2,13 +2,15 @@
 "use client"
 
   
-import displayElementWhenPageLoads from "@/animation-provider/animation";
 import { useSignal } from "@preact/signals-react";
 import { PrismicNextImage } from "@prismicio/next"
 import Link from "next/link";
-import { useEffect, useRef} from "react";
+import { RefObject, useEffect, useRef} from "react";
 
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
+gsap.registerPlugin(ScrollTrigger);
   
   
 
@@ -17,12 +19,78 @@ import { useEffect, useRef} from "react";
 
     export default function HairProduct({products,slice}:any) {
 const headerref =  useRef(null)
+const productref =  useRef<HTMLDivElement | null>(null);
+
 
      
-const loadingAnimation = useEffect(()=>{
+   
+  const opacityAnimation = (ref: RefObject<HTMLDivElement | HTMLButtonElement | HTMLImageElement | HTMLSpanElement>,time:number) =>{
+    let opacityAnimation =   ScrollTrigger.create({
+      trigger: ref.current,
+      start: "top bottom",
+      end: "bottom top",
+      
+      
+        onEnter: () => {
+        gsap.to(ref.current,time, {
+          opacity:'100%',
+          scrub:1,
+          ease: "Power1.easeIn" ,
+          
+        });
+    
+      },
+      onLeave: () => {
+        gsap.to(ref.current,time, {
+          opacity:'0%',
+          scrub:1,
+          ease: "Power1.easeIn" 
+          
+        });
+    
+    
+       
+        
+      },
+      onLeaveBack: () => {
+        gsap.to(ref.current,time, {
+          opacity:'0%',
+          scrub:1,
+          ease: "Power1.easeIn" 
+          
+        });
+    
+      
+    
+      },
+      
+      onEnterBack: () => {
+        gsap.to(ref.current, time,{
+          opacity:'100%',
+          scrub:1,
+          ease: "Power1.easeIn" 
+         
+        });
+    
+       
+    
+      },
+    })
+  }
+  
+  
+  useEffect(()=>{
+    opacityAnimation(headerref,0.4)
+    opacityAnimation(productref,0.8)
 
-  displayElementWhenPageLoads(headerref,0.5,800)
-})       
+
+ 
+
+   
+    
+  
+  
+  })   
 
 
       return (
@@ -42,7 +110,7 @@ const loadingAnimation = useEffect(()=>{
       
 
       <div className="space-y-16 flex flex-col items-center  ">
-        <div className="hairProductsContainer w-full grid  portrait:grid-cols-2 landscape:grid-cols-4  gap-5   gap-y-20"> 
+        <div ref={productref} className="hairProductsContainer w-full grid  portrait:grid-cols-2 landscape:grid-cols-4  gap-5   gap-y-20"> 
         {products.map((product:any) => (
           <div
             key={product._id}
