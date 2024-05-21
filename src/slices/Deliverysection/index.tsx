@@ -43,43 +43,81 @@ const Deliverysection = ({ slice }: DeliverysectionProps): JSX.Element => {
   const deliverytruck = useRef<HTMLImageElement | null>(null);
 
 
+  
+
+  // const animateRoadMovement = (ref:any) => {
+  //   gsap.fromTo(ref.current, {
+  //     xPercent: 0 // Start from the right edge
+  //   }, {
+  //     xPercent: -100, // Move to -100% for continuous scrolling effect
+  //     repeat: -1,
+  //     duration: 5,
+  //     ease: "linear",
+  //     scrub: true,
+     
+  //   });
+  // };
+
 
   const animateRoadMovement = (ref:any) => {
-    gsap.fromTo(ref.current, {
-      xPercent: 0 // Start from the right edge
+    const tl = gsap.timeline({ repeat: -1 }); // Timeline for smooth looping
+  
+  
+    // Create a clone of the first element (adjust as needed)
+    const firstLineClone = ref.current.cloneNode(true);
+    ref.current!.append(firstLineClone);
+  
+    tl.fromTo(ref.current, {
+      xPercent: 0, // Start from the right edge
     }, {
-      xPercent: -100, // Move to -100% for continuous scrolling effect
-      repeat: -1,
+      xPercent: -100, // Move to -100% for continuous scrolling
       duration: 5,
       ease: "linear",
       scrub: true,
+    })
+    .fromTo(ref.current, {  // Transition for looping (original elements)
+      xPercent: -101
+    }, {
+      xPercent: -101, // Reset to starting position for smooth loop
+      duration: 0, // Transition duration (adjust as needed)
+      ease: "Power1.easeIn", // Ease for a smooth transition
     });
+
+
+
+    
+
   };
+
+
+  
 
 const animateCarBounce = () => {
   const tl = gsap.timeline({ repeat: -1 }); // Create a timeline for repeated bouncing
 
   tl.to(deliverytruck.current, {
-    y: '-50%', // Move down 10px
+    y: '-51.5%', // Move down 10px
     duration: 0.5, // Duration for downward movement
     ease: "Power1.easeIn", // Ease in for a smooth start
+    
   })
   .to(deliverytruck.current, {
-    y: '-50.5%', // Move up 10px
+    y: '-50%', // Move up 10px
     duration: 0.5, // Duration for upward movement
     ease: "Power1.easeOut", // Ease out for a smooth stop
+    
   });
 
 
 if(isPortrait()){
 
   tl.to(deliverytruck.current, {
-    y: '-55%', // Move down 10px
+    y: '-55.1%', // Move down 10px
     duration: 0.5, // Duration for downward movement
     ease: "Power1.easeIn", // Ease in for a smooth start
   })
   .to(deliverytruck.current, {
-    y: '-55.1%', // Move up 10px
+    y: '-55%', // Move up 10px
     duration: 0.5, // Duration for upward movement
     ease: "Power1.easeOut", // Ease out for a smooth stop
   });

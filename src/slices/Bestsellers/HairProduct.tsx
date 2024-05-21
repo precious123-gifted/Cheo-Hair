@@ -47,7 +47,7 @@ const loadingAnimation = useEffect(()=>{
           <div
             key={product._id}
             id={product._id}
-            className="hairProduct w-auto flex flex-col items-center text-center space-y-1"
+            className="hairProduct  w-auto flex flex-col items-center text-start  space-y-1"
           >
             <Link  href={`/product/${product._id}`}> 
               <div className="hairImage cursor-pointer w-[12vw] portrait:w-[26vw] portrait:sm:w-[23vw] object-contain">
@@ -55,18 +55,16 @@ const loadingAnimation = useEffect(()=>{
               </div>
             </Link>
             <Link href={`/product/${product._id}`}> 
-              <div className="hairTitle cursor-pointer text-[1.5vw] portrait:text-[5vw]">{product.product.hairtitle}</div>
+              <div className="hairTitle w-[12vw] portrait:w-[26vw]  cursor-pointer text-[1.5vw] portrait:text-[5vw]">{product.product.hairtitle}</div>
             </Link>
-            <div className="hairDescription cursor-pointer text-[1.19vw]  portrait:text-[4vw] portrait:sm:text-[3vw]">{product.product.hairdescription}</div>
-            <div className="hairPrize cursor-pointer font-medium text-green-900 portrait:text-[4vw]">{product.product.hairprize}</div>
+            <div className="hairDescription w-[12vw] portrait:w-[26vw]  cursor-pointer text-[1.19vw]  portrait:text-[4vw] portrait:sm:text-[3vw]">{product.product.hairdescription}</div>
+            <div className="hairPrize w-[12vw] portrait:w-[26vw]  cursor-pointer font-medium text-green-900 portrait:text-[4vw]">{product.product.hairprize}</div>
           </div>
         ))}
 
 
       </div>
-      {/* { windowPath === '/' && (
-<Link href={"/hairs"} className=" text-[1.8vw] portrait:sm:text-[4vw] portrait:text-[5vw] px-4 py-4 bg-[#2E2820] text-[#DAD3D7] rounded-[0.210rem]  "> View All Hairs </Link>
-      )} */}
+      
       </div>
       </div>
       </>
