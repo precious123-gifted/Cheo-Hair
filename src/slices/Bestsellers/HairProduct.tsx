@@ -5,7 +5,7 @@
 import { useSignal } from "@preact/signals-react";
 import { PrismicNextImage } from "@prismicio/next"
 import Link from "next/link";
-import { RefObject, useEffect, useRef} from "react";
+import React, { MutableRefObject, RefObject, useEffect, useRef} from "react";
 
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
@@ -19,7 +19,12 @@ gsap.registerPlugin(ScrollTrigger);
 
     export default function HairProduct({products,slice}:any) {
 const headerref =  useRef(null)
-const productref =  useRef<HTMLDivElement | null>(null);
+type ProductRef = MutableRefObject<HTMLDivElement | null>;
+
+const productrefs = useRef<ProductRef[]>([]);
+
+
+
 
 
      
@@ -81,7 +86,12 @@ const productref =  useRef<HTMLDivElement | null>(null);
   
   useEffect(()=>{
     opacityAnimation(headerref,0.4)
-    opacityAnimation(productref,0.8)
+
+    productrefs.current.forEach((el)=>{
+
+      opacityAnimation(el,0.8)
+
+    })
 
 
  
@@ -110,11 +120,13 @@ const productref =  useRef<HTMLDivElement | null>(null);
       
 
       <div className="space-y-16 flex flex-col items-center  ">
-        <div ref={productref} className="hairProductsContainer w-full grid  portrait:grid-cols-2 landscape:grid-cols-4  gap-5   gap-y-20"> 
-        {products.map((product:any) => (
+        <div   className="hairProductsContainer w-full grid  portrait:grid-cols-2 landscape:grid-cols-4  gap-5   gap-y-20"> 
+        {products.map((product:any,index:number) => (
           <div
             key={product._id}
             id={product._id}
+            ref={productrefs.current[index] = React.createRef<HTMLDivElement>()}
+            // onClick={()=>{opacityAnimation(productref,0.8)}}
             className="hairProduct  w-auto flex flex-col items-center text-start  space-y-1"
           >
             <Link  href={`/product/${product._id}`}> 
